@@ -1,0 +1,192 @@
+/**
+ * MATH ADVENTURE - DUNIA NUMERIA
+ * Motion & Animations Stylesheet
+ * 
+ * Animasi halus, berperforma tinggi (menggunakan transform dan opacity),
+ * mendukung preferensi aksesibilitas prefers-reduced-motion.
+ */
+
+/* ==========================================================================
+   KEYFRAME DEFINITIONS
+   ========================================================================== */
+
+/* 1. Subtle Floating & Breathing for Characters */
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* 2. Floating Cloud Background Motion */
+@keyframes cloudDrift {
+  0% {
+    transform: translateX(-5%);
+  }
+  50% {
+    transform: translateX(5%);
+  }
+  100% {
+    transform: translateX(-5%);
+  }
+}
+
+/* 3. Soft Pulsing for Badges & Buttons */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(255, 194, 32, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(255, 194, 32, 0);
+  }
+}
+
+/* 4. Gate Crystal Wisdom Shimmer */
+@keyframes crystalHover {
+  0%, 100% {
+    transform: translate(600px, 260px) scale(1) rotate(0deg);
+  }
+  50% {
+    transform: translate(600px, 248px) scale(1.06) rotate(2deg);
+  }
+}
+
+@keyframes portalGlowPulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.08);
+  }
+}
+
+/* 5. Fade In & Slide Up for Screen Transitions */
+@keyframes screenSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 6. Correct Answer Cheerful Pop */
+@keyframes popSuccess {
+  0% {
+    transform: scale(0.96);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* 7. Gentle Attention Shake (Non-punitive) */
+@keyframes gentleNotice {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  20%, 60% {
+    transform: translateX(-4px);
+  }
+  40%, 80% {
+    transform: translateX(4px);
+  }
+}
+
+/* 8. Star Sparkle */
+@keyframes starTwinkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* ==========================================================================
+   APPLIED CLASSES
+   ========================================================================== */
+
+.animate-float {
+  animation: floatGentle 3.5s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2.5s infinite;
+}
+
+.animate-screen-enter {
+  animation: screenSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-correct {
+  animation: popSuccess 0.4s ease-out;
+}
+
+.animate-gentle-shake {
+  animation: gentleNotice 0.4s ease-in-out;
+}
+
+/* Animated SVG Elements */
+#final-gate-crystal {
+  animation: crystalHover 4s ease-in-out infinite;
+  transform-origin: center;
+}
+
+#gate-energy-glow {
+  animation: portalGlowPulse 3s ease-in-out infinite;
+  transform-origin: 600px 330px;
+}
+
+/* Pin Map Hover Effects */
+.map-location-pin.unlocked:not(.locked) .pin-badge {
+  animation: pulseGlow 3s infinite;
+}
+
+/* Loading Spin Indicator */
+.loading-spinner {
+  width: 44px;
+  height: 44px;
+  border: 4px solid var(--border-light);
+  border-top-color: var(--primary-blue);
+  border-right-color: var(--accent-yellow);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 12px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ==========================================================================
+   AKSESIBILITAS: PREFERS-REDUCED-MOTION
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-float,
+  .animate-pulse-glow,
+  #final-gate-crystal,
+  #gate-energy-glow {
+    animation: none !important;
+  }
+}

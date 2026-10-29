@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 320" width="100%" height="100%">
+  <defs>
+    <filter id="mShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#041E42" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+  <ellipse cx="120" cy="305" rx="50" ry="12" fill="#041E42" opacity="0.18"/>
+  <g filter="url(#mShadow)">
+    <rect x="92" y="225" width="18" height="55" rx="5" fill="#041E42"/>
+    <rect x="130" y="225" width="18" height="55" rx="5" fill="#041E42"/>
+    <rect x="88" y="280" width="26" height="18" rx="4" fill="#0071CE"/>
+    <rect x="126" y="280" width="26" height="18" rx="4" fill="#0071CE"/>
+
+    <!-- Explorer Jacket -->
+    <rect x="82" y="145" width="76" height="85" rx="14" fill="#0071CE"/>
+    <polygon points="120,145 105,175 135,175" fill="#FFFFFF"/>
+    <polygon points="120,170 114,200 120,210 126,200" fill="#FFC220"/>
+    <rect x="80" y="210" width="80" height="12" rx="3" fill="#041E42"/>
+    <rect x="112" y="208" width="16" height="16" rx="3" fill="#FFC220"/>
+
+    <!-- Left hand holding notebook -->
+    <rect x="50" y="165" width="28" height="38" rx="4" fill="#FEF08A" stroke="#041E42" stroke-width="2"/>
+    <line x1="56" y1="175" x2="72" y2="175" stroke="#041E42" stroke-width="2"/>
+    <line x1="56" y1="185" x2="72" y2="185" stroke="#041E42" stroke-width="2"/>
+    <circle cx="68" cy="180" r="9" fill="#FFE082"/>
+
+    <!-- Right hand cheering -->
+    <path d="M156,150 L185,135 L192,148 L162,168 Z" fill="#0071CE"/>
+    <circle cx="192" cy="135" r="12" fill="#FFE082"/>
+
+    <!-- Head & Hair (Pigtails) -->
+    <rect x="111" y="130" width="18" height="16" fill="#FFE082"/>
+    <!-- Pigtails -->
+    <circle cx="70" cy="100" r="18" fill="#B45309"/>
+    <circle cx="170" cy="100" r="18" fill="#B45309"/>
+    <circle cx="120" cy="98" r="38" fill="#FFE082"/>
+    <path d="M84,92 Q120,62 156,92 Q160,70 120,62 Q80,70 84,92 Z" fill="#B45309"/>
+    <!-- Face -->
+    <ellipse cx="106" cy="96" rx="6" ry="8" fill="#041E42"/>
+    <circle cx="108" cy="93" r="2.5" fill="#FFFFFF"/>
+    <ellipse cx="134" cy="96" rx="6" ry="8" fill="#041E42"/>
+    <circle cx="136" cy="93" r="2.5" fill="#FFFFFF"/>
+    <circle cx="97" cy="104" r="5" fill="#F43F5E" opacity="0.5"/>
+    <circle cx="143" cy="104" r="5" fill="#F43F5E" opacity="0.5"/>
+    <path d="M112,108 Q120,120 128,108" fill="none" stroke="#041E42" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- Explorer Beret Hat -->
+    <ellipse cx="120" cy="66" rx="46" ry="14" fill="#0071CE"/>
+    <circle cx="120" cy="56" r="6" fill="#FFC220"/>
+  </g>
+</svg>

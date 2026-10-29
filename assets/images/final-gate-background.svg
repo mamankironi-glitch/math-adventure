@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" width="100%" height="100%">
+  <defs>
+    <linearGradient id="gateSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#041E42"/>
+      <stop offset="50%" stop-color="#0B2B5C"/>
+      <stop offset="100%" stop-color="#0071CE"/>
+    </linearGradient>
+    <radialGradient id="portalGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFC220" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#0071CE" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#041E42" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="gateShadow">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+  <!-- Dark Majestic Midnight/Cosmic Blue Sky -->
+  <rect width="1200" height="700" fill="url(#gateSky)"/>
+  <!-- Glowing Celestial Stars in Background -->
+  <circle cx="150" cy="80" r="3" fill="#FFC220"/>
+  <circle cx="280" cy="140" r="2" fill="#FFFFFF"/>
+  <circle cx="420" cy="90" r="3" fill="#FFFFFF"/>
+  <circle cx="780" cy="110" r="2.5" fill="#FFC220"/>
+  <circle cx="950" cy="70" r="3.5" fill="#FFFFFF"/>
+  <circle cx="1080" cy="150" r="2" fill="#FFC220"/>
+  <!-- Mountain Plateau Base -->
+  <polygon points="0,520 250,420 600,440 950,410 1200,530 1200,700 0,700" fill="#0F172A"/>
+  <!-- Grand Stone Stairs -->
+  <polygon points="350,660 850,660 780,560 420,560" fill="#1E293B" stroke="#0071CE" stroke-width="2"/>
+  <polygon points="390,560 810,560 750,500 450,500" fill="#334155" stroke="#FFC220" stroke-width="2"/>
+  <polygon points="420,500 780,500 730,450 470,450" fill="#475569" stroke="#FFC220" stroke-width="2"/>
+  
+  <!-- THE PORTAL CENTER ENERGY GLOW -->
+  <ellipse id="gate-energy-glow" cx="600" cy="330" rx="160" ry="200" fill="url(#portalGlow)"/>
+
+  <!-- Left Ancient Colossal Pillar -->
+  <g filter="url(#gateShadow)">
+    <rect x="360" y="140" width="75" height="340" rx="6" fill="#041E42" stroke="#0071CE" stroke-width="4"/>
+    <!-- Pillar carvings / runes -->
+    <rect x="380" y="180" width="35" height="15" rx="3" fill="#FFC220" opacity="0.8"/>
+    <rect x="380" y="240" width="35" height="15" rx="3" fill="#FFC220" opacity="0.8"/>
+    <rect x="380" y="300" width="35" height="15" rx="3" fill="#FFC220" opacity="0.8"/>
+    <rect x="380" y="360" width="35" height="15" rx="3" fill="#FFC220" opacity="0.8"/>
+    <polygon points="350,140 445,140 435,110 360,110" fill="#FFC220"/>
+  </g>
+
+  <!-- Right Ancient Colossal Pillar -->
+  <g filter="url(#gateShadow)">
+    <rect x="765" y="140" width="75" height="340" rx="6" fill="#041E42" stroke="#0071CE" stroke-width="4"/>
+    <!-- Pillar carvings / runes -->
+    <rect x="785" y="180" width="35" height="15" rx="3" fill="#FFC220" opacity="0.8"/>
+    <rect x="785" y="240" width="35" height="15" rx="3" fill="#FFC220" opacity="0.8"/>
+    <rect x="785" y="300" width="35" height="15" rx="3" fill="#FFC220" opacity="0.8"/>
+    <rect x="785" y="360" width="35" height="15" rx="3" fill="#FFC220" opacity="0.8"/>
+    <polygon points="755,140 850,140 840,110 765,110" fill="#FFC220"/>
+  </g>
+
+  <!-- Massive Archway Beam Top -->
+  <path d="M340,140 Q600,60 860,140 L850,90 Q600,10 350,90 Z" fill="#041E42" stroke="#FFC220" stroke-width="5" filter="url(#gateShadow)"/>
+  
+  <!-- Floating Giant Wisdom Crystal (Core of Numeria) -->
+  <g id="final-gate-crystal" transform="translate(600, 260)">
+    <circle cx="0" cy="0" r="50" fill="#FFC220" opacity="0.25"/>
+    <polygon points="0,-40 30,0 0,40 -30,0" fill="#FFC220" stroke="#FFFFFF" stroke-width="4"/>
+    <polygon points="0,-40 10,-5 0,40 -10,-5" fill="#FFE082"/>
+  </g>
+</svg>

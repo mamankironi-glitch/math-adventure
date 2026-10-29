@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" width="100%" height="100%">
+  <defs>
+    <linearGradient id="vilSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="70%" stop-color="#BAE6FD"/>
+      <stop offset="100%" stop-color="#FFFBEB"/>
+    </linearGradient>
+  </defs>
+  <!-- Sky -->
+  <rect width="1200" height="700" fill="url(#vilSky)"/>
+  <!-- Distant Hill -->
+  <path d="M-20,440 Q300,340 700,430 T1220,380 L1220,700 L-20,700 Z" fill="#86EFAC" opacity="0.6"/>
+  <!-- Village Ground Cobblestone Base -->
+  <rect x="0" y="480" width="1200" height="220" fill="#E2E8F0"/>
+  <!-- Cobblestone Texture Dots -->
+  <ellipse cx="200" cy="580" rx="20" ry="8" fill="#CBD5E1"/>
+  <ellipse cx="380" cy="620" rx="25" ry="9" fill="#CBD5E1"/>
+  <ellipse cx="640" cy="560" rx="22" ry="8" fill="#CBD5E1"/>
+  <ellipse cx="900" cy="610" rx="28" ry="10" fill="#CBD5E1"/>
+  <!-- Village Buildings (Left: Bakery, Center: Clock/Town Hall, Right: Tailor Shop) -->
+  <!-- Left Building: Toko Roti Desa -->
+  <g transform="translate(120, 290)">
+    <rect x="0" y="90" width="220" height="150" rx="8" fill="#FFFFFF" stroke="#041E42" stroke-width="4"/>
+    <polygon points="-15,90 110,10 235,90" fill="#EA580C" stroke="#041E42" stroke-width="4"/>
+    <!-- Door -->
+    <rect x="80" y="150" width="50" height="90" rx="25" fill="#78350F"/>
+    <!-- Bakery Sign -->
+    <rect x="40" y="110" width="130" height="30" rx="6" fill="#FFC220" stroke="#041E42" stroke-width="2"/>
+    <text x="105" y="130" font-family="'Segoe UI', sans-serif" font-weight="900" font-size="14" fill="#041E42" text-anchor="middle">TOKO ROTI DESA</text>
+  </g>
+  <!-- Center Building: Balai Desa Numeria -->
+  <g transform="translate(480, 220)">
+    <rect x="0" y="130" width="260" height="180" rx="8" fill="#FFFFFF" stroke="#041E42" stroke-width="4"/>
+    <polygon points="-20,130 130,20 280,130" fill="#0071CE" stroke="#041E42" stroke-width="4"/>
+    <circle cx="130" cy="90" r="24" fill="#FFFFFF" stroke="#041E42" stroke-width="3"/>
+    <line x1="130" y1="90" x2="130" y2="76" stroke="#041E42" stroke-width="3"/>
+    <line x1="130" y1="90" x2="142" y2="90" stroke="#041E42" stroke-width="3"/>
+    <!-- Columns -->
+    <rect x="30" y="160" width="24" height="150" fill="#041E42"/>
+    <rect x="206" y="160" width="24" height="150" fill="#041E42"/>
+    <!-- Grand Double Door -->
+    <rect x="95" y="200" width="70" height="110" rx="10" fill="#FFC220" stroke="#041E42" stroke-width="3"/>
+  </g>
+  <!-- Right Building: Kios Bahan Pangan & Kain -->
+  <g transform="translate(860, 310)">
+    <rect x="0" y="80" width="210" height="140" rx="8" fill="#FFFFFF" stroke="#041E42" stroke-width="4"/>
+    <polygon points="-10,80 105,10 220,80" fill="#059669" stroke="#041E42" stroke-width="4"/>
+    <!-- Awning Striped (Walmart Blue & Yellow) -->
+    <path d="M-10,80 L220,80 L210,110 L-20,110 Z" fill="#0071CE"/>
+    <path d="M20,80 L50,80 L40,110 L10,110 Z" fill="#FFC220"/>
+    <path d="M80,80 L110,80 L100,110 L70,110 Z" fill="#FFC220"/>
+    <path d="M140,80 L170,80 L160,110 L130,110 Z" fill="#FFC220"/>
+    <path d="M200,80 L220,80 L210,110 L190,110 Z" fill="#FFC220"/>
+    <!-- Window Display -->
+    <rect x="30" y="125" width="60" height="50" rx="4" fill="#BAE6FD" stroke="#041E42" stroke-width="2"/>
+    <rect x="120" y="130" width="50" height="90" fill="#78350F"/>
+  </g>
+  <!-- Village Water Fountain Foreground -->
+  <g transform="translate(560, 560)">
+    <ellipse cx="50" cy="30" rx="60" ry="24" fill="#38BDF8" stroke="#041E42" stroke-width="4"/>
+    <ellipse cx="50" cy="30" rx="48" ry="18" fill="#0284C7"/>
+    <!-- Center Pillar -->
+    <rect x="42" y="-15" width="16" height="40" fill="#94A3B8" stroke="#041E42" stroke-width="2"/>
+    <ellipse cx="50" cy="-15" rx="25" ry="10" fill="#38BDF8" stroke="#041E42" stroke-width="2"/>
+    <!-- Water Jet -->
+    <path d="M50,-15 Q50,-40 40,-45 Q50,-35 60,-45 Q50,-40 50,-15" fill="#E0F2FE"/>
+  </g>
+</svg>

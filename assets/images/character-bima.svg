@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 320" width="100%" height="100%">
+  <defs>
+    <filter id="bShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#041E42" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+  <ellipse cx="120" cy="305" rx="52" ry="12" fill="#041E42" opacity="0.18"/>
+  <g filter="url(#bShadow)">
+    <rect x="90" y="225" width="22" height="55" rx="5" fill="#041E42"/>
+    <rect x="128" y="225" width="22" height="55" rx="5" fill="#041E42"/>
+    <rect x="86" y="280" width="30" height="20" rx="4" fill="#FFC220"/>
+    <rect x="124" y="280" width="30" height="20" rx="4" fill="#FFC220"/>
+
+    <!-- Explorer Jacket -->
+    <rect x="76" y="145" width="88" height="85" rx="14" fill="#041E42"/>
+    <rect x="96" y="145" width="48" height="40" fill="#0071CE"/>
+    <polygon points="120,165 110,200 120,210 130,200" fill="#FFC220"/>
+    <rect x="74" y="210" width="92" height="14" rx="3" fill="#0071CE"/>
+    <rect x="110" y="206" width="20" height="20" rx="4" fill="#FFC220"/>
+
+    <!-- Binoculars across chest -->
+    <path d="M85,155 L155,205" stroke="#FFC220" stroke-width="4"/>
+    <rect x="140" y="185" width="22" height="16" rx="4" fill="#334155" stroke="#FFC220" stroke-width="2"/>
+
+    <!-- Arms -->
+    <path d="M78,150 L55,185 L68,195 L90,160 Z" fill="#041E42"/>
+    <circle cx="56" cy="195" r="13" fill="#FBBF24"/>
+    <path d="M162,150 L188,185 L175,195 L150,160 Z" fill="#041E42"/>
+    <circle cx="184" cy="195" r="13" fill="#FBBF24"/>
+
+    <!-- Head & Hair -->
+    <rect x="110" y="130" width="20" height="16" fill="#FBBF24"/>
+    <circle cx="120" cy="98" r="38" fill="#FBBF24"/>
+    <!-- Spiky short hair -->
+    <polygon points="90,75 105,50 120,70 135,50 150,75" fill="#1E293B"/>
+    <!-- Face -->
+    <ellipse cx="106" cy="96" rx="6" ry="8" fill="#041E42"/>
+    <circle cx="108" cy="93" r="2.5" fill="#FFFFFF"/>
+    <ellipse cx="134" cy="96" rx="6" ry="8" fill="#041E42"/>
+    <circle cx="136" cy="93" r="2.5" fill="#FFFFFF"/>
+    <path d="M112,110 Q120,122 128,110" fill="none" stroke="#041E42" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- Headband / Bandana -->
+    <rect x="82" y="70" width="76" height="12" rx="3" fill="#0071CE"/>
+    <circle cx="120" cy="76" r="4" fill="#FFC220"/>
+  </g>
+</svg>

@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="100%" height="100%">
+  <defs>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#E1EFFE"/>
+      <stop offset="100%" stop-color="#BAE6FD"/>
+    </linearGradient>
+    <linearGradient id="seaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284C7"/>
+      <stop offset="100%" stop-color="#0369A1"/>
+    </linearGradient>
+    <linearGradient id="valleyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#86EFAC"/>
+      <stop offset="100%" stop-color="#22C55E"/>
+    </linearGradient>
+    <linearGradient id="forestGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#4ADE80"/>
+      <stop offset="100%" stop-color="#15803D"/>
+    </linearGradient>
+    <linearGradient id="mountainGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#93C5FD"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#041E42" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Ocean / Water Background -->
+  <rect width="960" height="540" fill="url(#seaGrad)"/>
+
+  <!-- Animated-like Ocean Waves & Islands -->
+  <path d="M-20,400 Q150,380 320,410 T700,390 T1000,420 L1000,540 L-20,540 Z" fill="#0284C7" opacity="0.5"/>
+
+  <!-- MAIN CONTINENT OF NUMERIA -->
+  <path d="M60,280 C90,140 220,90 380,80 C550,70 720,100 860,180 C930,220 920,380 840,440 C720,510 500,480 340,490 C180,500 40,420 60,280 Z" fill="#FEF08A" stroke="#CA8A04" stroke-width="5" filter="url(#shadow)"/>
+  
+  <!-- Continent Inner Terrain (Lush Green / Plains) -->
+  <path d="M80,270 C110,160 230,110 380,100 C530,90 700,120 830,190 C890,230 890,360 810,420 C700,480 490,460 340,470 C190,480 70,390 80,270 Z" fill="url(#valleyGrad)"/>
+
+  <!-- Mountain Range Top-Center / North -->
+  <polygon points="340,180 390,90 440,180" fill="url(#mountainGrad)"/>
+  <polygon points="380,110 390,90 400,110" fill="#FFFFFF"/>
+  <polygon points="410,200 470,100 530,200" fill="url(#mountainGrad)"/>
+  <polygon points="455,125 470,100 485,125" fill="#FFFFFF"/>
+  <polygon points="490,190 540,110 590,190" fill="url(#mountainGrad)"/>
+  <polygon points="530,126 540,110 550,126" fill="#FFFFFF"/>
+
+  <!-- Winding Crystal River from Mountains to South Sea -->
+  <path d="M430,170 Q410,240 450,290 T520,380 T560,490" fill="none" stroke="#38BDF8" stroke-width="14" stroke-linecap="round"/>
+  <path d="M430,170 Q410,240 450,290 T520,380 T560,490" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-dasharray="10,12" stroke-linecap="round"/>
+
+  <!-- ADVENTURE TRAVEL PATHS (Dotted connecting lines between 4 locations) -->
+  <!-- Path 1 to 2: Lembah (West) -> Hutan (North-East) -->
+  <path d="M220,330 C240,240 310,220 380,250 C440,280 500,240 560,210" fill="none" stroke="#FFC220" stroke-width="6" stroke-dasharray="10,10"/>
+  <!-- Path 2 to 3: Hutan (North-East) -> Desa (South-East) -->
+  <path d="M620,240 C670,280 690,320 680,380" fill="none" stroke="#FFC220" stroke-width="6" stroke-dasharray="10,10"/>
+  <!-- Path 3 to 4: Desa (South-East) -> Gerbang Pengetahuan (East Citadel) -->
+  <path d="M720,380 C770,350 780,290 800,240" fill="none" stroke="#FFC220" stroke-width="6" stroke-dasharray="10,10"/>
+
+  <!-- LOCATION 1: LEMBAH PENEMUAN (West) -->
+  <g id="map-loc-1-gfx" transform="translate(140, 260)">
+    <!-- Hill + Windmill + Farmland -->
+    <ellipse cx="80" cy="80" rx="70" ry="35" fill="#86EFAC"/>
+    <!-- Windmill -->
+    <polygon points="70,75 75,35 85,35 90,75" fill="#041E42"/>
+    <circle cx="80" cy="35" r="5" fill="#FFC220"/>
+    <line x1="80" y1="35" x2="60" y2="20" stroke="#0071CE" stroke-width="3"/>
+    <line x1="80" y1="35" x2="100" y2="50" stroke="#0071CE" stroke-width="3"/>
+    <line x1="80" y1="35" x2="65" y2="50" stroke="#0071CE" stroke-width="3"/>
+    <line x1="80" y1="35" x2="95" y2="20" stroke="#0071CE" stroke-width="3"/>
+    <!-- Cottage -->
+    <rect x="100" y="55" width="24" height="20" rx="3" fill="#FFFFFF" stroke="#041E42" stroke-width="2"/>
+    <polygon points="96,55 112,42 128,55" fill="#0071CE"/>
+  </g>
+
+  <!-- LOCATION 2: HUTAN TANTANGAN (North-East) -->
+  <g id="map-loc-2-gfx" transform="translate(520, 140)">
+    <!-- Dense Forest Clump -->
+    <ellipse cx="80" cy="80" rx="65" ry="35" fill="#166534" opacity="0.3"/>
+    <!-- Pine Trees -->
+    <polygon points="50,75 65,40 80,75" fill="#15803D"/>
+    <polygon points="70,65 85,30 100,65" fill="#16A34A"/>
+    <polygon points="90,80 105,45 120,80" fill="#15803D"/>
+    <polygon points="75,85 90,55 105,85" fill="#22C55E"/>
+    <!-- Magical Mushroom Glowing -->
+    <path d="M40,78 Q50,65 60,78 Z" fill="#F43F5E"/>
+    <circle cx="48" cy="72" r="2" fill="#FFFFFF"/>
+    <circle cx="53" cy="74" r="1.5" fill="#FFFFFF"/>
+  </g>
+
+  <!-- LOCATION 3: DESA KEHIDUPAN (South-East) -->
+  <g id="map-loc-3-gfx" transform="translate(610, 310)">
+    <!-- Village Area Base -->
+    <ellipse cx="80" cy="80" rx="75" ry="40" fill="#FDE047" opacity="0.4"/>
+    <!-- Houses -->
+    <rect x="40" y="60" width="28" height="24" rx="3" fill="#FFFFFF" stroke="#041E42" stroke-width="2"/>
+    <polygon points="36,60 54,44 72,60" fill="#EA580C"/>
+    <rect x="80" y="50" width="34" height="30" rx="3" fill="#FFFFFF" stroke="#041E42" stroke-width="2"/>
+    <polygon points="76,50 97,32 118,50" fill="#0071CE"/>
+    <!-- Market Awning (Striped blue & yellow) -->
+    <polygon points="80,50 114,50 118,58 76,58" fill="#FFC220"/>
+    <!-- Fountain -->
+    <ellipse cx="64" cy="86" rx="14" ry="7" fill="#38BDF8" stroke="#041E42" stroke-width="2"/>
+  </g>
+
+  <!-- LOCATION 4: GERBANG PENGETAHUAN (Far East Sanctuary) -->
+  <g id="map-loc-4-gfx" transform="translate(740, 160)">
+    <!-- Ancient Stone Platform -->
+    <ellipse cx="75" cy="85" rx="60" ry="28" fill="#94A3B8" opacity="0.4"/>
+    <!-- Grand Stone Gateway Arch -->
+    <rect x="45" y="30" width="16" height="55" rx="3" fill="#041E42"/>
+    <rect x="90" y="30" width="16" height="55" rx="3" fill="#041E42"/>
+    <path d="M40,30 Q75,10 110,30 L110,20 Q75,0 40,20 Z" fill="#0071CE" stroke="#FFC220" stroke-width="2"/>
+    <!-- Glowing Wisdom Crystal Floating in Gate -->
+    <polygon points="75,32 83,44 75,56 67,44" fill="#FFC220" stroke="#FFFFFF" stroke-width="1.5"/>
+    <!-- Light Radiance -->
+    <circle cx="75" cy="44" r="16" fill="#FFC220" opacity="0.35"/>
+  </g>
+
+  <!-- Compass Rose (Decorative in Map Corner) -->
+  <g transform="translate(100, 110)">
+    <circle cx="0" cy="0" r="32" fill="#FFFFFF" opacity="0.85" stroke="#041E42" stroke-width="2"/>
+    <polygon points="0,-28 6,-6 0,0 -6,-6" fill="#0071CE"/>
+    <polygon points="0,28 6,6 0,0 -6,6" fill="#041E42"/>
+    <polygon points="28,0 6,6 0,0 6,-6" fill="#FFC220"/>
+    <polygon points="-28,0 -6,6 0,0 -6,-6" fill="#FFC220"/>
+    <text x="0" y="-32" font-family="'Segoe UI', sans-serif" font-weight="900" font-size="12" fill="#0071CE" text-anchor="middle">U</text>
+    <text x="0" y="42" font-family="'Segoe UI', sans-serif" font-weight="900" font-size="12" fill="#041E42" text-anchor="middle">S</text>
+    <text x="36" y="4" font-family="'Segoe UI', sans-serif" font-weight="900" font-size="12" fill="#041E42" text-anchor="middle">T</text>
+    <text x="-36" y="4" font-family="'Segoe UI', sans-serif" font-weight="900" font-size="12" fill="#041E42" text-anchor="middle">B</text>
+  </g>
+
+  <!-- Map Title Banner Bottom Left -->
+  <g transform="translate(180, 480)">
+    <rect x="-80" y="-22" width="280" height="36" rx="18" fill="#041E42" stroke="#FFC220" stroke-width="3" filter="url(#shadow)"/>
+    <text x="60" y="2" font-family="'Segoe UI', sans-serif" font-weight="800" font-size="16" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">PETA DUNIA NUMERIA</text>
+  </g>
+</svg>

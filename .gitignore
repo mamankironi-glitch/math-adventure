@@ -1,0 +1,8 @@
+# Dependencies & Test Artifacts
+node_modules/
+.vercel/
+edge_user_data*/
+temp_*/
+*.log
+test_*.js
+generate_*.js
