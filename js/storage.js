@@ -226,6 +226,7 @@ class StorageManager {
 
 // Instance global
 const gameStorage = new StorageManager();
+window.gameStorage = gameStorage;
 
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = StorageManager;

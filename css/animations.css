@@ -1,16 +1,100 @@
 /**
  * MATH ADVENTURE - DUNIA NUMERIA
- * Motion & Animations Stylesheet
+ * Motion & Animations Stylesheet (Upgraded Version)
  * 
- * Animasi halus, berperforma tinggi (menggunakan transform dan opacity),
- * mendukung preferensi aksesibilitas prefers-reduced-motion.
+ * - Animasi Sinematik Bumper 5 Tahap
+ * - Efek Gerakan Lingkungan & Karakter
+ * - Transisi Tematik Antar-Wilayah
+ * - Menghormati prefers-reduced-motion
  */
 
 /* ==========================================================================
-   KEYFRAME DEFINITIONS
+   1. KEYFRAME SINEMATIK BUMPER
    ========================================================================== */
 
-/* 1. Subtle Floating & Breathing for Characters */
+/* Lanskap Muncul Perlahan & Bergeser Halus */
+@keyframes bumperPanLandscape {
+  0% {
+    opacity: 0;
+    transform: scale(1.08) translateX(-15px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateX(0);
+  }
+}
+
+/* Awan & Angin Berhembus di Bumper */
+@keyframes bumperDriftClouds {
+  0% {
+    transform: translateX(-40px);
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateX(40px);
+    opacity: 0.6;
+  }
+}
+
+/* Karakter Masuk ke Komposisi */
+@keyframes bumperCharacterEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Logo Berpendar dengan Keemasan */
+@keyframes bumperLogoRadiance {
+  0% {
+    opacity: 0;
+    transform: scale(0.85);
+    filter: drop-shadow(0 0 0 rgba(255, 194, 32, 0));
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.04);
+    filter: drop-shadow(0 0 35px rgba(255, 194, 32, 0.7));
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: drop-shadow(0 6px 18px rgba(4, 30, 66, 0.25));
+  }
+}
+
+/* ==========================================================================
+   2. KEYFRAME GAMEPLAY & MANIPULATIF
+   ========================================================================== */
+
+/* Mengisi Cairan di Tabung Ukur Kaca */
+@keyframes liquidRise {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+/* Gelombang Permukaan Cairan */
+@keyframes liquidWave {
+  0%, 100% {
+    border-radius: 4px 4px 0 0;
+  }
+  50% {
+    border-radius: 8px 8px 0 0;
+  }
+}
+
+/* Karakter Terapung Halus (Bobbing) */
 @keyframes floatGentle {
   0%, 100% {
     transform: translateY(0);
@@ -20,51 +104,43 @@
   }
 }
 
-/* 2. Floating Cloud Background Motion */
-@keyframes cloudDrift {
-  0% {
-    transform: translateX(-5%);
-  }
-  50% {
-    transform: translateX(5%);
-  }
-  100% {
-    transform: translateX(-5%);
-  }
-}
-
-/* 3. Soft Pulsing for Badges & Buttons */
+/* Pendar Lembut untuk Aksen Penting */
 @keyframes pulseGlow {
   0%, 100% {
-    box-shadow: 0 0 0 0 rgba(255, 194, 32, 0.4);
+    box-shadow: 0 0 0 0 rgba(255, 194, 32, 0.45);
   }
   50% {
-    box-shadow: 0 0 0 10px rgba(255, 194, 32, 0);
+    box-shadow: 0 0 0 12px rgba(255, 194, 32, 0);
   }
 }
 
-/* 4. Gate Crystal Wisdom Shimmer */
+/* Kristal Gerbang Melayang */
 @keyframes crystalHover {
   0%, 100% {
     transform: translate(600px, 260px) scale(1) rotate(0deg);
   }
   50% {
-    transform: translate(600px, 248px) scale(1.06) rotate(2deg);
+    transform: translate(600px, 246px) scale(1.06) rotate(2deg);
   }
 }
 
-@keyframes portalGlowPulse {
-  0%, 100% {
-    opacity: 0.6;
-    transform: scale(1);
+/* Pintu Gerbang Terbuka */
+@keyframes gateAuraBurst {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
   }
   50% {
-    opacity: 0.95;
-    transform: scale(1.08);
+    transform: scale(1.15);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
   }
 }
 
-/* 5. Fade In & Slide Up for Screen Transitions */
+/* Transisi Layar Masuk */
 @keyframes screenSlideIn {
   from {
     opacity: 0;
@@ -76,7 +152,7 @@
   }
 }
 
-/* 6. Correct Answer Cheerful Pop */
+/* Jawaban Tepat Pop */
 @keyframes popSuccess {
   0% {
     transform: scale(0.96);
@@ -89,33 +165,21 @@
   }
 }
 
-/* 7. Gentle Attention Shake (Non-punitive) */
+/* Peringatan Lembut Tanpa Hukuman */
 @keyframes gentleNotice {
   0%, 100% {
     transform: translateX(0);
   }
-  20%, 60% {
+  25%, 75% {
     transform: translateX(-4px);
   }
-  40%, 80% {
+  50% {
     transform: translateX(4px);
   }
 }
 
-/* 8. Star Sparkle */
-@keyframes starTwinkle {
-  0%, 100% {
-    opacity: 0.3;
-    transform: scale(0.8);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.2);
-  }
-}
-
 /* ==========================================================================
-   APPLIED CLASSES
+   3. KELAS ANIMASI AKTIF
    ========================================================================== */
 
 .animate-float {
@@ -138,42 +202,13 @@
   animation: gentleNotice 0.4s ease-in-out;
 }
 
-/* Animated SVG Elements */
 #final-gate-crystal {
   animation: crystalHover 4s ease-in-out infinite;
   transform-origin: center;
 }
 
-#gate-energy-glow {
-  animation: portalGlowPulse 3s ease-in-out infinite;
-  transform-origin: 600px 330px;
-}
-
-/* Pin Map Hover Effects */
-.map-location-pin.unlocked:not(.locked) .pin-badge {
-  animation: pulseGlow 3s infinite;
-}
-
-/* Loading Spin Indicator */
-.loading-spinner {
-  width: 44px;
-  height: 44px;
-  border: 4px solid var(--border-light);
-  border-top-color: var(--primary-blue);
-  border-right-color: var(--accent-yellow);
-  border-radius: 50%;
-  animation: spin 0.8s linear infinite;
-  margin-bottom: 12px;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 /* ==========================================================================
-   AKSESIBILITAS: PREFERS-REDUCED-MOTION
+   4. DUKUNGAN PREFERS-REDUCED-MOTION
    ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -185,8 +220,7 @@
 
   .animate-float,
   .animate-pulse-glow,
-  #final-gate-crystal,
-  #gate-energy-glow {
+  #final-gate-crystal {
     animation: none !important;
   }
 }

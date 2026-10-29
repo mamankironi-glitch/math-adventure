@@ -13,7 +13,7 @@
 <body>
 
   <!-- ========================================================================
-       TOP SITE HEADER
+       TOP SITE HEADER (Zero Emoji - Sistem Ikon SVG)
        ======================================================================== -->
   <header class="site-header" role="banner">
     <div class="brand-container" id="header-brand" title="Kembali ke Beranda">
@@ -28,17 +28,30 @@
 
     <!-- Tombol Kontrol Header -->
     <div class="header-actions">
-      <button type="button" class="icon-btn" id="btn-toggle-sound" title="Aktifkan / Matikan Suara" aria-label="Toggle Suara">
-        <span>🔊</span> Suara: Nyala
+      <button type="button" class="icon-btn" id="btn-toggle-sound" title="Pengaturan Suara" aria-label="Toggle Suara">
+        <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+        <span>Suara: Nyala</span>
       </button>
       <button type="button" class="icon-btn" id="btn-header-help" title="Panduan & Cara Bermain" aria-label="Bantuan">
-        <span>❓</span> Bantuan
+        <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+        <span>Bantuan</span>
       </button>
       <button type="button" class="icon-btn" id="btn-header-reset" title="Mulai Sesi Siswa Baru" aria-label="Sesi Baru">
-        <span>🔄</span> Sesi Baru
+        <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+        <span>Sesi Baru</span>
       </button>
     </div>
   </header>
+
+  <!-- ========================================================================
+       TRANSISI TEMATIK ANTAR-WILAYAH
+       ======================================================================== -->
+  <div id="thematic-transition-overlay" class="transition-overlay" aria-hidden="true">
+    <div class="transition-banner-card animate-screen-enter">
+      <h2 class="transition-title" id="transition-theme-title">Menuju Wilayah</h2>
+      <p class="transition-sub" id="transition-theme-sub">Memuat Suasana Permainan...</p>
+    </div>
+  </div>
 
   <!-- ========================================================================
        MAIN APP CONTAINER (Screen Views)
@@ -46,19 +59,37 @@
   <main class="app-container" id="app-root">
 
     <!-- ----------------------------------------------------------------------
-         SCREEN 1: LOADING SCREEN
+         SCREEN 1: BUMPER PEMBUKA SINEMATIK & LOADING SCREEN TERPADU
          ---------------------------------------------------------------------- -->
     <div id="screen-loading" class="screen active" aria-live="polite">
-      <div class="loading-content">
-        <img src="assets/images/logo.svg" alt="Math Adventure" class="loading-logo">
-        <img src="assets/images/character-guide.svg" alt="Niko" class="loading-character animate-float">
-        <div class="loading-spinner"></div>
-        <h2 class="loading-title">Menyiapkan Dunia Numeria</h2>
-        <p class="loading-subtitle">Media Pembelajaran Pecahan Kelas V SD Muhammadiyah</p>
-        <div class="loading-bar-track">
-          <div class="loading-bar-fill" id="loading-progress-bar"></div>
+      <div class="bumper-container">
+        <!-- Adegan 1: Lanskap Dunia Numeria -->
+        <div class="bumper-scene-layer" id="bumper-scene-landscape"></div>
+
+        <!-- Adegan 2: Awan & Cahaya Lingkungan -->
+        <div class="bumper-scene-layer" id="bumper-scene-environment"></div>
+
+        <!-- Tombol Lewati Bumper -->
+        <button type="button" class="btn-skip-bumper" id="btn-skip-bumper">
+          <span>Lewati Pembukaan</span>
+        </button>
+
+        <!-- Adegan 3, 4, 5: Karakter, Logo, dan Indikator Pemuatan -->
+        <div class="bumper-content-stage">
+          <div class="bumper-scene-layer" id="bumper-scene-character">
+            <img src="assets/images/character-guide.svg" alt="Niko" class="bumper-character-img animate-float">
+          </div>
+
+          <div class="bumper-scene-layer" id="bumper-scene-logo">
+            <img src="assets/images/logo.svg" alt="Math Adventure" class="bumper-logo-img">
+            <div class="bumper-sub-badge">Media Pembelajaran Pecahan Kelas V SD Muhammadiyah</div>
+          </div>
+
+          <div class="loading-bar-track">
+            <div class="loading-bar-fill" id="loading-progress-bar"></div>
+          </div>
+          <div class="loading-status-text" id="loading-status-label">Menyingkap Lanskap Dunia Numeria...</div>
         </div>
-        <div class="loading-status-text" id="loading-status-label">Membuka Gerbang Dunia Numeria...</div>
       </div>
     </div>
 
@@ -70,37 +101,52 @@
       <div class="landing-hero animate-screen-enter">
         <div class="landing-text-col">
           <div class="landing-kkn-badge">
-            <span>🎓</span> Program Kerja KKN Teknologi Pendidikan - SD Muhammadiyah
+            <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+            <span>Program Kerja KKN Teknologi Pendidikan - SD Muhammadiyah</span>
           </div>
           <h1 class="landing-title">
             MATH <span>ADVENTURE</span>
           </h1>
           <p class="landing-desc">
-            Bantu penduduk <strong>Dunia Numeria</strong> memecahkan berbagai persoalan sehari-hari dengan kemampuan <strong>Pecahan</strong>. Jelajahi lembah panen, hutan herbal, hingga pasar desa yang penuh tantangan!
+            Bantu penduduk <strong>Dunia Numeria</strong> menyelesaikan berbagai permasalahan melalui kemampuan <strong>Pecahan</strong>. Jelajahi lembah panen, racik ramuan hutan, hingga atur persediaan toko desa yang penuh tantangan interaktif!
           </p>
 
           <div class="landing-features">
-            <span class="feature-pill">🗺️ Peta Petualangan 2D</span>
-            <span class="feature-pill">🍕 Benda Konkret Interaktif</span>
-            <span class="feature-pill">⭐ Sistem Skor & Progres</span>
-            <span class="feature-pill">💡 Penjelasan Langkah Ramah Anak</span>
+            <span class="feature-pill">
+              <svg class="ui-icon text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon></svg>
+              <span>Peta Petualangan 2D</span>
+            </span>
+            <span class="feature-pill">
+              <svg class="ui-icon text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 19a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2L12 2z"></path></svg>
+              <span>Simulasi & Manipulatif Konkret</span>
+            </span>
+            <span class="feature-pill">
+              <svg class="ui-icon text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"></path></svg>
+              <span>Sistem Skor & Standar KKM</span>
+            </span>
+            <span class="feature-pill">
+              <svg class="ui-icon text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+              <span>Bimbingan Langkah Ramah Anak</span>
+            </span>
           </div>
 
           <div class="landing-cta-group">
             <button type="button" class="btn btn-primary btn-lg" id="btn-landing-start">
-              <span>Mulai Petualangan</span> 🚀
+              <span>Mulai Petualangan</span>
+              <svg class="ui-icon" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
             </button>
             <button type="button" class="btn btn-secondary btn-lg" id="btn-landing-how-to-play">
-              <span>Cara Bermain</span> ❓
+              <span>Cara Bermain</span>
+              <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
             </button>
           </div>
         </div>
 
         <div class="landing-graphic-col">
           <div class="landing-speech-bubble">
-            Halo! Aku <strong>Niko</strong>. Mari kita taklukkan pecahan bersama!
+            Halo! Aku <strong>Niko</strong>. Mari kita pecahkan misteri pecahan bersama!
           </div>
-          <img src="assets/images/character-guide.svg" alt="Karakter Niko si Penjelajah" class="landing-hero-char animate-float">
+          <img src="assets/images/character-guide.svg" alt="Niko si Penjelajah" class="landing-hero-char animate-float">
         </div>
       </div>
     </section>
@@ -140,7 +186,8 @@
 
           <div class="player-actions">
             <button type="submit" class="btn btn-primary btn-lg">
-              <span>Lanjutkan ke Petualangan</span> ➔
+              <span>Lanjutkan ke Petualangan</span>
+              <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </button>
             <button type="button" class="anon-btn" id="btn-anon-continue">
               Atau Lanjut Tanpa Nama (Anonim)
@@ -179,20 +226,24 @@
             </p>
           </div>
           <div class="tutorial-card-visual" id="tutorial-step-visual">
-            <div style="font-size: 3rem; margin-bottom: 8px;">🗺️</div>
-            <p style="font-weight: 800; color: var(--primary-blue);">Peta Petualangan 2D</p>
+            <div class="tutorial-icon-frame">
+              <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon></svg>
+            </div>
+            <p style="font-weight: 800; color: var(--primary-blue); margin-top: 10px;">Peta Petualangan 2D</p>
           </div>
         </div>
 
         <div class="tutorial-footer">
           <button type="button" class="btn btn-secondary" id="btn-tutorial-prev" style="visibility: hidden;">
-            ⬅️ Sebelumnya
+            <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            <span>Sebelumnya</span>
           </button>
           <button type="button" class="btn btn-secondary btn-sm" id="btn-tutorial-skip">
             Lewati Tutorial
           </button>
           <button type="button" class="btn btn-primary" id="btn-tutorial-next">
-            Selanjutnya ➔
+            <span>Selanjutnya</span>
+            <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
           </button>
         </div>
       </div>
@@ -204,17 +255,22 @@
     <section id="screen-map" class="screen">
       <div class="map-header-bar">
         <div class="map-title-box">
-          <h2>🗺️ Peta Petualangan Dunia Numeria</h2>
+          <h2>
+            <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon></svg>
+            <span>Peta Petualangan Dunia Numeria</span>
+          </h2>
           <p>Pilih wilayah yang telah terbuka untuk menuntaskan misi pecahan.</p>
         </div>
         <div class="map-stats-group">
           <div class="stat-pill">
-            <span>🏆 Total Skor:</span>
+            <svg class="ui-icon text-accent" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            <span>Total Skor:</span>
             <strong id="map-stat-score">0 Poin</strong>
           </div>
           <div class="stat-pill">
-            <span>📍 Progres:</span>
-            <strong id="map-stat-levels">0 dari 4 Selesai</strong>
+            <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+            <span>Progres:</span>
+            <strong id="map-stat-levels">0 dari 4 Wilayah Tuntas</strong>
           </div>
         </div>
       </div>
@@ -226,8 +282,8 @@
         <!-- PIN LOKASI 1: LEMBAH PENEMUAN -->
         <div class="map-location-pin unlocked" id="pin-level-1" role="button" tabindex="0" title="Level 1: Lembah Penemuan">
           <div class="pin-badge">
-            <span>🌾</span>
-            <span class="pin-score-tag" style="display: none;">★ 0</span>
+            <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 20h18L14 7l-4 6-3-4-4 11z"></path></svg>
+            <span class="pin-score-tag" style="display: none;">Skor: 0</span>
           </div>
           <div class="pin-label">1. Lembah Penemuan</div>
         </div>
@@ -235,8 +291,8 @@
         <!-- PIN LOKASI 2: HUTAN TANTANGAN -->
         <div class="map-location-pin locked" id="pin-level-2" role="button" tabindex="0" title="Level 2: Hutan Tantangan">
           <div class="pin-badge">
-            <span>🌲</span>
-            <span class="pin-score-tag" style="display: none;">★ 0</span>
+            <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 12 6 12 4 18 10 18 10 22 14 22 14 18 20 18 18 12 22 12 12 2"></polygon></svg>
+            <span class="pin-score-tag" style="display: none;">Skor: 0</span>
           </div>
           <div class="pin-label">2. Hutan Tantangan</div>
         </div>
@@ -244,8 +300,8 @@
         <!-- PIN LOKASI 3: DESA KEHIDUPAN -->
         <div class="map-location-pin locked" id="pin-level-3" role="button" tabindex="0" title="Level 3: Desa Kehidupan">
           <div class="pin-badge">
-            <span>🏘️</span>
-            <span class="pin-score-tag" style="display: none;">★ 0</span>
+            <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            <span class="pin-score-tag" style="display: none;">Skor: 0</span>
           </div>
           <div class="pin-label">3. Desa Kehidupan</div>
         </div>
@@ -253,8 +309,8 @@
         <!-- PIN LOKASI 4: GERBANG PENGETAHUAN -->
         <div class="map-location-pin locked" id="pin-level-4" role="button" tabindex="0" title="Tantangan Akhir: Gerbang Pengetahuan">
           <div class="pin-badge">
-            <span>⛩️</span>
-            <span class="pin-score-tag" style="display: none;">★ 0</span>
+            <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 21V4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v17"></path><path d="M2 21h20"></path><path d="M9 3v18"></path><path d="M15 3v18"></path></svg>
+            <span class="pin-score-tag" style="display: none;">Skor: 0</span>
           </div>
           <div class="pin-label">4. Gerbang Pengetahuan</div>
         </div>
@@ -262,7 +318,7 @@
     </section>
 
     <!-- ----------------------------------------------------------------------
-         SCREEN 6: LAYAR LEVEL (Materi, Tantangan, & Hasil Level)
+         SCREEN 6: LAYAR LEVEL (Materi, Simulasi Manipulatif, & Evaluasi)
          ---------------------------------------------------------------------- -->
     <section id="screen-level" class="screen">
       <div class="level-container">
@@ -272,12 +328,13 @@
           <div class="level-scenery-overlay"></div>
           <div class="level-header-content">
             <div>
-              <span class="level-badge-tag" id="level-badge-tag">LEVEL 1</span>
+              <span class="level-badge-tag" id="level-badge-tag">WILAYAH 1</span>
               <h2 class="level-header-title" id="level-title">Lembah Penemuan</h2>
               <p class="level-header-subtitle" id="level-subtitle">Pengenalan Pecahan & Representasi Benda Konkret</p>
             </div>
             <button type="button" class="btn btn-secondary btn-sm" id="btn-back-to-map-from-level">
-              🗺️ Kembali ke Peta
+              <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon></svg>
+              <span>Kembali ke Peta</span>
             </button>
           </div>
         </div>
@@ -287,8 +344,14 @@
           
           <!-- Switcher Tab: Materi vs Misi -->
           <div class="level-tab-switcher">
-            <button type="button" class="tab-btn active" id="tab-materi">📖 Cerita & Materi Ringkas</button>
-            <button type="button" class="tab-btn" id="tab-misi">🎯 Tantangan Misi</button>
+            <button type="button" class="tab-btn active" id="tab-materi">
+              <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+              <span>Cerita & Materi Ringkas</span>
+            </button>
+            <button type="button" class="tab-btn" id="tab-misi">
+              <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle></svg>
+              <span>Tantangan Misi</span>
+            </button>
           </div>
 
           <!-- PANEL 1: CERITA & MATERI RINGKAS -->
@@ -297,55 +360,56 @@
               <div id="story-container"></div>
               <div>
                 <h4 style="font-size: 1.2rem; font-weight: 800; color: var(--color-navy); margin-bottom: 12px;">
-                  💡 Rangkuman Konsep Pecahan:
+                  Rangkuman Konsep Pecahan:
                 </h4>
                 <div id="materi-sections-container"></div>
                 <div style="margin-top: 24px; text-align: center;">
                   <button type="button" class="btn btn-accent btn-lg" id="btn-start-mission-from-materi">
-                    Mulai Kerjakan Misi Sekarang 🚀
+                    <span>Mulai Kerjakan Misi Sekarang</span>
+                    <svg class="ui-icon" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
                   </button>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- PANEL 2: TANTANGAN MISI INTERAKTIF -->
+          <!-- PANEL 2: TANTANGAN MISI (SIMULASI MANIPULATIF + EVALUASI KONSEPTUAL) -->
           <div id="panel-misi-content" style="display: none;" class="animate-screen-enter">
-            <div class="challenge-stage">
-              <!-- Bar Status Atas Soal -->
-              <div class="challenge-top-status">
-                <div class="question-progress-badge" id="question-counter">Soal 1 dari 10</div>
-                <div class="current-score-badge">
-                  <span>⭐ Skor:</span>
-                  <span id="current-score-display">0 Poin</span>
+            <!-- Bagian A: Panggung Simulasi Interaktif Manipulatif -->
+            <div id="simulation-interactive-stage"></div>
+
+            <!-- Bagian B: Panggung Soal Evaluasi Pemahaman Konsep -->
+            <div id="standard-question-stage" style="display: none;">
+              <div class="challenge-stage">
+                <div class="challenge-top-status">
+                  <div class="question-progress-badge" id="question-counter">Tantangan Konsep: 1 dari 10</div>
+                  <div class="current-score-badge">
+                    <svg class="ui-icon text-accent" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <span>Skor:</span>
+                    <span id="current-score-display">0 Poin</span>
+                  </div>
                 </div>
-              </div>
 
-              <!-- Teks Soal & Indikator -->
-              <div>
-                <div class="question-indicator-tag" id="question-indicator">Topik: Pengenalan Pecahan</div>
-                <h3 class="question-text-area" id="question-text">Teks pertanyaan akan dimuat di sini...</h3>
-              </div>
+                <div>
+                  <div class="question-indicator-tag" id="question-indicator">Topik: Pengenalan Pecahan</div>
+                  <h3 class="question-text-area" id="question-text">Teks pertanyaan...</h3>
+                </div>
 
-              <!-- Area Visual / Teka-teki Interaktif (Pizza / Bar / Grid) -->
-              <div class="interactive-puzzle-box" id="interactive-visual-box" style="display: none;"></div>
+                <div class="interactive-puzzle-box" id="interactive-visual-box" style="display: none;"></div>
+                <div class="options-grid" id="options-grid"></div>
+                <div class="feedback-box" id="feedback-box"></div>
 
-              <!-- Pilihan Jawaban A, B, C, D -->
-              <div class="options-grid" id="options-grid"></div>
-
-              <!-- Umpan Balik Jawaban (Penjelasan Pedagogis) -->
-              <div class="feedback-box" id="feedback-box"></div>
-
-              <!-- Baris Navigasi Soal Berikutnya -->
-              <div class="challenge-nav-row">
-                <button type="button" class="btn btn-primary btn-lg" id="btn-next-question" style="display: none;">
-                  Lanjut ke Soal Berikutnya ➔
-                </button>
+                <div class="challenge-nav-row">
+                  <button type="button" class="btn btn-primary btn-lg" id="btn-next-question" style="display: none;">
+                    <span>Lanjut ke Tantangan Berikutnya</span>
+                    <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
 
-          <!-- PANEL 3: HASIL LEVEL (Kelulusan / Ulangi) -->
+          <!-- PANEL 3: HASIL LEVEL -->
           <div id="panel-level-results" style="display: none;">
             <div id="level-result-content"></div>
           </div>
@@ -355,18 +419,16 @@
     </section>
 
     <!-- ----------------------------------------------------------------------
-         SCREEN 7: HASIL PETUALANGAN AKHIR (Comprehensive Evaluation Report)
+         SCREEN 7: HASIL PETUALANGAN AKHIR
          ---------------------------------------------------------------------- -->
     <section id="screen-final-results" class="screen">
-      <div class="report-container animate-screen-enter" id="final-results-container">
-        <!-- Akan dirender secara dinamis oleh AppNavigator.renderFinalResultsScreen() -->
-      </div>
+      <div class="report-container animate-screen-enter" id="final-results-container"></div>
     </section>
 
   </main>
 
   <!-- ========================================================================
-       MODAL 1: BRIEFING WILAYAH (Saat Pin Peta Diklik)
+       MODAL 1: BRIEFING WILAYAH
        ======================================================================== -->
   <div class="modal-backdrop" id="briefing-modal" role="dialog" aria-modal="true" aria-labelledby="modal-briefing-title">
     <div class="modal-card">
@@ -383,37 +445,43 @@
       <div style="display: flex; align-items: center; justify-content: space-between; border-top: 2px solid var(--border-light); padding-top: 18px; flex-wrap: gap;">
         <div id="modal-briefing-status"></div>
         <button type="button" class="btn btn-primary btn-lg" id="btn-modal-start-level">
-          Masuk ke Wilayah 🚀
+          <span>Masuk ke Wilayah</span>
+          <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
         </button>
       </div>
     </div>
   </div>
 
   <!-- ========================================================================
-       MODAL 2: PEMBAHASAN LENGKAP SOAL (Review Modal)
+       MODAL 2: PEMBAHASAN LENGKAP SOAL
        ======================================================================== -->
   <div class="modal-backdrop" id="review-modal" role="dialog" aria-modal="true" aria-labelledby="review-modal-title">
-    <div class="modal-card" style="max-width: 800px; max-height: 85vh; display: flex; flex-direction: column;">
+    <div class="modal-card" style="max-width: 860px; max-height: 85vh; display: flex; flex-direction: column;">
       <div class="modal-header">
         <div class="modal-title-group">
-          <h3 id="review-modal-title">🔍 Pembahasan Lengkap Seluruh Soal</h3>
+          <h3 id="review-modal-title">Pembahasan Lengkap Seluruh Aktivitas</h3>
           <p>Pelajari alasan di balik setiap jawaban untuk memperkuat pemahaman pecahan.</p>
         </div>
         <button type="button" class="modal-close-btn" id="btn-close-review-modal" aria-label="Tutup Modal">&times;</button>
       </div>
 
-      <div id="review-modal-content" style="overflow-y: auto; padding-right: 8px; flex: 1;">
-        <!-- Daftar pembahasan soal akan dirender di sini -->
-      </div>
+      <div id="review-modal-content" style="overflow-y: auto; padding-right: 8px; flex: 1;"></div>
     </div>
   </div>
 
   <!-- ========================================================================
-       SCRIPTS
+       SCRIPTS (Modular & Clean)
        ======================================================================== -->
+  <script src="js/icons.js"></script>
   <script src="js/data/questions.js"></script>
   <script src="js/audio.js"></script>
   <script src="js/storage.js"></script>
+  <script src="js/transitions.js"></script>
+  <script src="js/bumper.js"></script>
+  <script src="js/simulations/level1-sim.js"></script>
+  <script src="js/simulations/level2-sim.js"></script>
+  <script src="js/simulations/level3-sim.js"></script>
+  <script src="js/simulations/final-gate-sim.js"></script>
   <script src="js/game.js"></script>
   <script src="js/navigation.js"></script>
   <script src="js/main.js"></script>

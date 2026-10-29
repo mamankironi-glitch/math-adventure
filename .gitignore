@@ -6,3 +6,5 @@ temp_*/
 *.log
 test_*.js
 generate_*.js
+
+.vercel

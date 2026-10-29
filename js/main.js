@@ -1,13 +1,16 @@
 /**
  * MATH ADVENTURE - DUNIA NUMERIA
- * Main Application Orchestrator
+ * Main Application Orchestrator (Upgraded Version)
  */
 
 document.addEventListener("DOMContentLoaded", () => {
-  // 1. Inisialisasi Navigator Layar
+  // 1. Inisialisasi Transisi & Navigasi
+  if (window.transitionMgr) {
+    window.transitionMgr.init();
+  }
   appNav.init();
 
-  // 2. Inisialisasi Game Engine dengan mapping elemen DOM
+  // 2. Inisialisasi Game Engine & Simulasi Manipulatif
   gameEngine.init({
     levelBadgeTag: document.getElementById("level-badge-tag"),
     levelTitle: document.getElementById("level-title"),
@@ -34,19 +37,18 @@ document.addEventListener("DOMContentLoaded", () => {
     levelResultContainer: document.getElementById("level-result-content")
   });
 
-  // 3. Setup Alur Loading Screen Otomatis
-  initLoadingSequence();
+  // 3. Jalankan Bumper Pembuka Sinematik yang Menyatu dengan Loading Screen
+  if (window.bumperEngine) {
+    window.bumperEngine.init();
+    window.bumperEngine.start();
+  }
 
-  // 4. Setup Landing Page Buttons
+  // 4. Setup Event Listeners Halaman Utama
   initLandingEvents();
-
-  // 5. Setup Player Identification Form
   initPlayerEvents();
-
-  // 6. Setup Level Page Controls (Tabs, Tombol Misi, Next Question, dsb)
   initLevelControls();
 
-  // 7. Setup Review Modal Close
+  // 5. Setup Modal Pembahasan Lengkap
   const closeReviewBtn = document.getElementById("btn-close-review-modal");
   if (closeReviewBtn) {
     closeReviewBtn.addEventListener("click", () => {
@@ -55,55 +57,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-/**
- * Loading Screen Simpatik & Cepat
- */
-function initLoadingSequence() {
-  const loadingBar = document.getElementById("loading-progress-bar");
-  const loadingStatus = document.getElementById("loading-status-label");
-  const screenLoading = document.getElementById("screen-loading");
-
-  let progress = 0;
-  const stages = [
-    { p: 25, label: "Membuka Gerbang Dunia Numeria..." },
-    { p: 55, label: "Memuat Peta Petualangan 2D..." },
-    { p: 85, label: "Mempersiapkan Bank Soal Pecahan Kelas V..." },
-    { p: 100, label: "Selamat Datang di Math Adventure!" }
-  ];
-
-  let currentStage = 0;
-  const interval = setInterval(() => {
-    if (currentStage < stages.length) {
-      const target = stages[currentStage];
-      progress = target.p;
-      if (loadingBar) loadingBar.style.width = `${progress}%`;
-      if (loadingStatus) loadingStatus.textContent = target.label;
-      currentStage++;
-    } else {
-      clearInterval(interval);
-      setTimeout(() => {
-        if (screenLoading) {
-          screenLoading.style.opacity = "0";
-          screenLoading.style.transition = "opacity 0.4s ease-out";
-          setTimeout(() => {
-            screenLoading.style.display = "none";
-            appNav.showScreen("landing");
-          }, 400);
-        }
-      }, 300);
-    }
-  }, 250);
-}
-
-/**
- * Event Handler Landing Page
- */
 function initLandingEvents() {
   const btnStart = document.getElementById("btn-landing-start");
   if (btnStart) {
     btnStart.addEventListener("click", () => {
       const player = gameStorage.getPlayer();
-      // Jika belum memasukkan nama atau masih default anonymous, tawarkan ke layar profil
       if (!player.name || player.name === "Penjelajah Cilik") {
         appNav.showScreen("player");
       } else {
@@ -122,13 +80,9 @@ function initLandingEvents() {
   }
 }
 
-/**
- * Event Handler Identitas Pemain
- */
 function initPlayerEvents() {
   let selectedAvatar = "niko";
 
-  // Avatar Options
   const avatarCards = document.querySelectorAll(".avatar-option");
   avatarCards.forEach(card => {
     card.addEventListener("click", () => {
@@ -139,7 +93,6 @@ function initPlayerEvents() {
     });
   });
 
-  // Form Submit
   const playerForm = document.getElementById("player-form");
   if (playerForm) {
     playerForm.addEventListener("submit", (e) => {
@@ -160,7 +113,6 @@ function initPlayerEvents() {
     });
   }
 
-  // Tombol Lanjut Tanpa Nama (Anonim)
   const btnAnon = document.getElementById("btn-anon-continue");
   if (btnAnon) {
     btnAnon.addEventListener("click", () => {
@@ -171,7 +123,6 @@ function initPlayerEvents() {
     });
   }
 
-  // Tombol Kembali ke Landing
   const btnBackLanding = document.getElementById("btn-player-back");
   if (btnBackLanding) {
     btnBackLanding.addEventListener("click", () => {
@@ -180,9 +131,6 @@ function initPlayerEvents() {
   }
 }
 
-/**
- * Kontrol Layar Level (Tabs, Navigasi Soal)
- */
 function initLevelControls() {
   const tabMateri = document.getElementById("tab-materi");
   if (tabMateri) {
@@ -220,7 +168,13 @@ function initLevelControls() {
   if (btnBackMapFromLevel) {
     btnBackMapFromLevel.addEventListener("click", () => {
       soundCtrl.playClick();
-      appNav.showScreen("map");
+      if (window.transitionMgr) {
+        window.transitionMgr.triggerTransition("default", () => {
+          appNav.showScreen("map");
+        });
+      } else {
+        appNav.showScreen("map");
+      }
     });
   }
 }

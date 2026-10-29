@@ -271,6 +271,7 @@ class SoundController {
 
 // Instance global
 const soundCtrl = new SoundController();
+window.soundCtrl = soundCtrl;
 
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = SoundController;

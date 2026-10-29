@@ -1,193 +1,209 @@
-# 🌟 Math Adventure: Petualangan di Dunia Numeria
-### Media Pembelajaran Matematika Interaktif (Pecahan) untuk Siswa Kelas V SD Muhammadiyah
+# Math Adventure: Petualangan di Dunia Numeria
+### Media Pembelajaran Matematika Interaktif (Materi Pecahan) untuk Siswa Kelas V SD Muhammadiyah
 **Program Kerja Individu KKN Mahasiswa Teknologi Pendidikan Semester 7**
 
 ---
 
-## 📌 1. Profil & Latar Belakang Proyek
+## 1. Profil & Identitas Proyek
 
 * **Nama Media**: Math Adventure: Petualangan di Dunia Numeria
+* **Dunia Petualangan**: Dunia Numeria
+* **Target Pengguna**: Siswa Kelas V Sekolah Dasar (Usia 10–11 tahun)
+* **Mata Pelajaran**: Matematika (Materi Pokok: Pecahan / *Fractions*)
 * **Live Website (Vercel)**: [https://math-adventure-numeria.vercel.app](https://math-adventure-numeria.vercel.app)
 * **Repositori GitHub**: [https://github.com/mamankironi-glitch/math-adventure](https://github.com/mamankironi-glitch/math-adventure)
-* **Sasaran Pengguna**: Siswa Kelas V Sekolah Dasar (Rentang Usia: 10–11 tahun)
-* **Mata Pelajaran**: Matematika (Materi Pokok: Pecahan / *Fractions*)
-* **Pendekatan Pembelajaran**: *Game-Based Learning*, *Point-and-Click Adventure 2D*, Representasi Benda Konkret, Eksplorasi Terbimbing (*Guided Exploration*), dan Pemecahan Masalah Kontekstual.
-* **Palet Warna Desain (Sesuai Referensi)**:
-  * Biru Utama: `#0071CE` (Identitas & Navigasi Utama)
-  * Kuning Emas: `#FFC220` (Aksen & Tombol Aksi Penting)
-  * Putih: `#FFFFFF` (Ruang Bersih / *Negative Space* & Kontras)
-  * Biru Navy: `#041E42` (Tipografi Judul & Elemen Kontras Tinggi)
+* **Pendekatan Desain & Pembelajaran**:
+  * *Game-Based Learning (2D Point-and-Click Adventure)*
+  * Manipulatif Benda Konkret Interaktif (Simulasi Pemotongan Kue/Pizza, Tabung Ukur Bertingkat, Mistar Pecahan, Teka-Teki Rune Kristal)
+  * Panduan Karakter Ramah Anak (Niko si Cermat, Maya si Teliti, Bima si Tangguh)
+  * Pembelajaran Bermakna Berbasis Masalah Nyata
+  * Standar Kelulusan KKM (Skor minimal 70 untuk membuka wilayah berikutnya)
+* **Sistem Desain Visual**:
+  * Biru Utama: `#0071CE` (Navigasi, Brand, & Fokus Interaksi)
+  * Kuning Emas: `#FFC220` (Aksen, Sorotan Nilai Pecahan, & Tombol Panggilan Aksi)
+  * Putih Bersih: `#FFFFFF` (Latar Belakang Bersih & Ruang Negatif Ramah Anak)
+  * Biru Navy: `#041E42` (Tipografi Judul, Kontras Tinggi & Skala Kartu)
 
 ---
 
-## 🎯 2. Capaian & Tujuan Pembelajaran
+## 2. Laporan Audit Menyeluruh Website (Pra & Pasca Revisi)
 
-Website edukasi ini dikembangkan untuk mendukung kompetensi Matematika kelas V SD dengan indikator capaian:
-1. **Identifikasi Pembilang & Penyebut**: Siswa memahami posisi serta arti matematis dari pembilang (bagian yang diperhatikan) dan penyebut (total bagian utuh).
-2. **Representasi Visual & Benda Konkret**: Siswa mampu memvisualisasikan pecahan melalui irisan pizza, pita pembagian, dan balok warna.
-3. **Membandingkan & Mengurutkan Pecahan**: Siswa dapat menentukan tanda pertidaksamaan ($<$, $>$, $=$) serta mengurutkan pecahan dari terkecil ke terbesar.
-4. **Konsep Pecahan Senilai**: Siswa menyadari bahwa pecahan berpenyebut beda dapat memiliki kuantitas setara (misal: $\frac{1}{2} = \frac{2}{4} = \frac{3}{6}$).
-5. **Operasi Penjumlahan & Pengurangan**:
-   * Pecahan berpenyebut sama: Menjumlahkan/mengurangkan pembilang tanpa mengubah penyebut.
-   * Pecahan berpenyebut beda: Menyamakan penyebut melalui kelipatan persekutuan terkecil (KPK) terlebih dahulu.
-6. **Pemecahan Masalah Nyata (Soal Cerita)**: Siswa menganalisis situasi kontekstual (menakar bahan kue, sisa pita, stok warung, dan pembagian hasil panen) secara sistematis.
+Sesuai instruksi audit komprehensif, berikut adalah hasil evaluasi terstruktur dalam tiga kategori utama:
+
+### Kategori 1: Fitur yang Berfungsi Baik & Dipertahankan
+1. **Arsitektur Tanpa Dependensi Berat**: Struktur HTML5, CSS3, dan Vanilla JavaScript murni tanpa runtime framework berat dipertahankan demi portabilitas dan kecepatan di laptop sekolah berspesifikasi standar.
+2. **Sintesis Audio Web Audio API**: Efek suara sintetis (nada benar bernuansa riang, nada salah lembut edukatif tanpa penghakiman, dan fanfare kemenangan) tidak membutuhkan file audio eksternal sehingga bebas latensi dan anti error CORS.
+3. **Penyimpanan State & Sesi Lokal**: Sistem `localStorage` dan memori cadangan untuk menyimpan profil siswa, riwayat jawaban, dan status kelulusan level tetap berfungsi andal.
+4. **Peta Petualangan 2D Dunia Numeria**: Alur eksplorasi bertingkat 4 wilayah (Lembah Penemuan, Hutan Tantangan, Desa Kehidupan, dan Gerbang Pengetahuan) dengan sistem gembok level berdasar KKM (70) dipertahankan.
+
+### Kategori 2: Fitur yang Diperbaiki
+1. **Penghapusan Seluruh Emoji (Kebijakan Zero Emoji)**: 
+   * *Sebelum*: Banyak tombol dan teks antarmuka menggunakan emoji sistem (seperti 🍕, 🌲, 🎒, 🏆, dsb.) yang tampil tidak konsisten antar sistem operasi siswa.
+   * *Perbaikan*: 100% emoji telah diganti dengan pustaka ikon vektor SVG terpadu (`AppIcons`) dengan goresan tajam, ukuran proporsional, dan warna tema konsisten.
+2. **Optimalisasi Resolusi Layar Desktop & 4K**:
+   * *Sebelum*: Tampilan kurang proporsional pada monitor desktop modern (1920 × 1080) dan monitor 4K (3840 × 2160).
+   * *Perbaikan*: Seluruh kontainer utama mengadopsi fluid scaling berbasis CSS `clamp()`, batas lebar maksimum fleksibel (hingga 1440px–1800px), dan grid 16:9 yang mempertahankan proporsi tanpa distorsi visual.
+3. **Pemberian Umpan Balik Matematis yang Lengkap**:
+   * *Sebelum*: Jawaban salah hanya menampilkan pesan singkat tanpa alasan mendasar.
+   * *Perbaikan*: Umpan balik langsung menjelaskan langkah matematis terperinci (pembilang, penyebut, KPK, dan penyederhanaan) serta dapat ditinjau ulang di Modal Pembahasan Akhir.
+
+### Kategori 3: Fitur Baru yang Dikembangkan
+1. **Bumper Pembuka Sinematik 5 Adegan Terintegrasi Loading Screen**:
+   * Adegan 1: Kemunculan lanskap perbukitan hijau Dunia Numeria secara perlahan.
+   * Adegan 2: Gerakan atmosferik lingkungan (awan bergeser, cahaya fajar berpendar).
+   * Adegan 3: Karakter penjelajah Niko hadir menyapa siswa.
+   * Adegan 4: Logo Math Adventure berpendar keemasan disertai identitas SD Muhammadiyah.
+   * Adegan 5: Indikator loading bar anggun bertransisi mulus ke Halaman Beranda (*Landing Page*).
+   * *Fitur Aksesibilitas*: Tersedia tombol "Lewati Pembukaan" (*Skip*) dan memori sesi `sessionStorage` agar loading instan pada navigasi berikutnya.
+2. **Transisi Tematik Antar-Wilayah**:
+   * Layar transisi dinamis dengan kartu tematik khusus wilayah (Nuansa Hijau Terbuka untuk Lembah, Nuansa Zamrud Segar untuk Hutan, Nuansa Hangat Komunitas untuk Desa, dan Nuansa Indigo Kristal untuk Gerbang).
+3. **Simulasi & Manipulatif Konkret Interaktif (Bukan Sekadar Pilihan Ganda)**:
+   * **Level 1 (Lembah Penemuan)**: Manipulatif Pemotong & Pembagi Kue/Pizza (siswa dapat mengubah jumlah irisan 2, 4, 6, 8 bagian, mengeklik potongan untuk melihat live readout pecahan pembilang/penyebut), Pasangkan Kartu Visual Daerah Berarsir, dan Jembatan Batu Pecahan.
+   * **Level 2 (Hutan Tantangan)**: Simulasi Laboratorium Gelas Ukur Bergraduasi (menuang ekstrak mint 2/5 L dan madu 1/5 L ke dalam tabung ukur kaca cair), Susun Urutan Prosedural Penjumlahan KPK, dan Analisis Kesalahan Resep Ramuan.
+   * **Level 3 (Desa Kehidupan)**: Simulasi Mistar Toko Kain Desa (menggeser gunting pada penggaris 1 meter untuk memotong 3/4 meter pita dan menghitung sisa bahan di toko), Pengaturan Timbangan Tepung Toko Roti, dan Puzzle Urutan Pesanan Pelanggan.
+   * **Gerbang Pengetahuan (Tantangan Akhir Multi-Tahap)**: Puzzle 4 Tahap Pembuka Gerbang Kuno (Pecahkan Kode Rune Kristal Penyederhanaan 9/12 menjadi 3/4, Urutan Penurunan Energi Kristal, Aliran Inti Pengetahuan KPK, dan Pembukaan Gerbang Epik).
 
 ---
 
-## 🗺️ 3. Struktur Dunia Numeria & Wilayah Petualangan
+## 3. Cakupan Materi Pembelajaran Matematika Kelas V SD
 
-Petualangan dibagi menjadi 4 wilayah berjenjang pada Peta Dunia 2D:
+Materi disusun sesuai kurikulum Matematika Kelas V SD, dirancang dengan bahasa komunikatif, ilustrasi kontekstual, dan langkah pemecahan yang terukur:
 
-| Wilayah | Tema Lingkungan | Fokus Pembelajaran | Syarat Kelulusan |
-| :--- | :--- | :--- | :--- |
-| **1. Lembah Penemuan** | Padang rumput, kincir angin, panen kue gandum | Pengenalan pecahan, pembilang/penyebut, pizza interaktif, pita pembagian, dan pecahan senilai dasar (10 Soal). | Terbuka dari awal (Lulus jika skor $\ge 70$). |
-| **2. Hutan Tantangan** | Hutan purba rimbun, tanaman obat herbal, mata air | Penjumlahan & pengurangan pecahan berpenyebut sama & beda, penyamaan penyebut, dan perhitungan sisa (10 Soal). | Terbuka setelah Lulus Level 1 (Skor $\ge 70$). |
-| **3. Desa Kehidupan** | Pemukiman warga, toko roti, penjahit, kios pasar | Penerapan pecahan dalam soal cerita kontekstual kehidupan sehari-hari (10 Soal). | Terbuka setelah Lulus Level 2 (Skor $\ge 70$). |
-| **4. Gerbang Pengetahuan** | Kuil kuno puncak gunung, portal kristal kebijaksanaan | Evaluasi komprehensif gabungan seluruh materi pecahan kelas V SD (5 Soal Pamungkas). | Terbuka setelah Lulus Level 3 (Skor $\ge 70$). |
+1. **Konsep Dasar Pecahan**:
+   $$\text{Pecahan} = \frac{\text{Pembilang (bagian yang diambil/diarsir)}}{\text{Penyebut (total bagian utuh sama besar)}}$$
+2. **Pecahan Senilai**:
+   Representasi visual bahwa luas daerah $\frac{1}{2}$ setara dengan $\frac{2}{4}$ dan $\frac{3}{6}$ melalui perkalian atau pembagian pembilang dan penyebut dengan angka yang sama:
+   $$\frac{a \times n}{b \times n} = \frac{a}{b}$$
+3. **Penyederhanaan Pecahan**:
+   Membagi pembilang dan penyebut dengan Faktor Persekutuan Terbesar (FPB), misalnya $\frac{9 \div 3}{12 \div 3} = \frac{3}{4}$.
+4. **Penjumlahan & Pengurangan Pecahan**:
+   * Penyebut Sama: $\frac{2}{5} + \frac{1}{5} = \frac{2+1}{5} = \frac{3}{5}$
+   * Penyebut Berbeda: Menentukan KPK penyebut terlebih dahulu sebelum mengoperasikan pembilang.
+5. **Soal Cerita Sehari-hari**:
+   Analisis masalah kontekstual: mengukur pita jahit, menakar tepung adonan kue bolu, menghitung sisa stok beras desa, dan membagi hasil panen semangka secara adil.
 
 ---
 
-## 📂 4. Struktur File Proyek
+## 4. Struktur File & Modul Kode
 
 ```text
 math-adventure/
 │
-├── index.html                  # Dokumen utama antarmuka (Semua layar & modal)
-├── README.md                   # Dokumentasi teknis & panduan guru / KKN
+├── index.html                       # Struktur antarmuka semantik, layar aplikasi & modal dialog
+├── README.md                        # Dokumentasi teknis komprehensif & laporan evaluasi KKN
+├── check_emojis.js                  # Skrip verifikasi statis 100% Bebas Emoji
+├── test_upgraded_game.js            # Skrip otomatis E2E Browser Testing via Chrome DevTools Protocol
 │
 ├── css/
-│   ├── style.css               # Desain sistem warna, tipografi, grid responsif, cetak laporan
-│   └── animations.css          # Animasi gerakan awan, karakter melayang, kristal, transisi
+│   ├── style.css                    # Sistem desain terpadu, layout desktop FHD/4K, kartu simulasi
+│   └── animations.css               # Keyframes bumper pembuka, cairan tabung ukur, floating avatar
 │
 ├── js/
-│   ├── main.js                 # Orkestrator utama & event listener
-│   ├── navigation.js           # Pengatur alur layar (Screen navigation & modal)
-│   ├── game.js                 # Engine permainan, renderer soal, kalkulator skor anti-spam
-│   ├── storage.js              # State manager, penyimpanan lokal & analisis diagnosis materi
-│   ├── audio.js                # Sintesis Web Audio API (Chime, nada lembut salah, fanfare)
-│   └── data/
-│       └── questions.js        # Bank 35 soal terstruktur, kunci jawaban, dan pembahasan
+│   ├── icons.js                     # Pustaka vektor SVG terpadu (Pengganti seluruh emoji)
+│   ├── bumper.js                    # Engine Bumper Sinematik 5 adegan terintegrasi loading screen
+│   ├── transitions.js               # Manajer transisi tematik atmosferik antar-wilayah
+│   ├── audio.js                     # Sintesis audio bebas dependensi (Web Audio API)
+│   ├── storage.js                   # Manajemen sesi siswa, penilaian KKM, dan diagnosis materi
+│   ├── navigation.js                # Pengontrol alur layar, update header, dan modal pembahasan
+│   ├── game.js                      # Pengendali alur permainan, orkestrator materi & simulasi
+│   │
+│   ├── data/
+│   │   └── questions.js             # Bank 35 soal terstruktur, kunci jawaban & pembahasan konseptual
+│   │
+│   └── simulations/
+│       ├── level1-sim.js            # Simulasi Pemotong Kue/Pizza, Matching Card, Stepping Stones
+│       ├── level2-sim.js            # Simulasi Gelas Ukur Cairan Bertingkat, Sequencing KPK
+│       ├── level3-sim.js            # Simulasi Mistar Pengukuran Toko Kain, Timbangan Roti Desa
+│       └── final-gate-sim.js        # Puzzle 4 Tahap Pembukaan Gerbang Pengetahuan
 │
 └── assets/
     └── images/
-        ├── logo.svg            # Lambang resmi Math Adventure (Emblem perisai kompas)
-        ├── world-map.svg       # Peta Dunia Numeria 2D beresolusi tajam
-        ├── character-guide.svg # Karakter Niko si Cermat
-        ├── character-maya.svg  # Karakter Maya si Teliti
-        ├── character-bima.svg  # Karakter Bima si Tangguh
-        ├── valley-background.svg # Panorama latar Lembah Penemuan
-        ├── forest-background.svg # Panorama latar Hutan Tantangan
-        ├── village-background.svg# Panorama latar Desa Kehidupan
-        └── final-gate-background.svg # Panorama latar Gerbang Pengetahuan
+        ├── logo.svg                 # Logo Math Adventure Dunia Numeria (Vektor Tajam)
+        ├── world-map.svg            # Peta 2D Dunia Numeria dengan 4 pin interaktif
+        ├── character-guide.svg      # Niko si Cermat (Pemandu Utama)
+        ├── character-maya.svg       # Maya si Teliti (Karakter Pilihan)
+        ├── character-bima.svg       # Bima si Tangguh (Karakter Pilihan)
+        ├── valley-background.svg    # Panorama Lembah Penemuan
+        ├── forest-background.svg    # Panorama Hutan Tantangan
+        ├── village-background.svg   # Panorama Desa Kehidupan
+        └── final-gate-background.svg# Panorama Gerbang Pengetahuan
 ```
 
 ---
 
-## 🚀 5. Cara Menjalankan Website
+## 5. Hasil Pengujian Otomatis (*End-to-End Automated Browser Testing*)
 
-### A. Membuka Secara Langsung (Offline / Tanpa Server)
-Website ini dirancang secara mandiri (*standalone*) tanpa dependensi eksternal:
-1. Buka berkas direktori `math-adventure`.
-2. Klik dua kali (*double click*) pada file `index.html`.
-3. Website akan langsung terbuka di browser Anda (Google Chrome, Microsoft Edge, Mozilla Firefox, dsb.).
-4. Semua aset gambar (SVG murni) dan efek audio (Web Audio API) akan berjalan lancar 100% tanpa kendala CORS atau file 404!
+Seluruh fungsi diverifikasi melalui pengujian peramban langsung (Microsoft Edge headless berbasis Chrome DevTools Protocol / CDP):
 
-### B. Menjalankan via Local Web Server (Opsional)
-Jika ingin menggunakan server lokal:
-* **Menggunakan Node.js**:
-  ```bash
-  npx serve .
-  # atau
-  npx http-server .
-  ```
-* Buka peramban di alamat `http://localhost:3000` atau `http://localhost:8080`.
+```text
+================================================================
+  PENGUJIAN KOMPREHENSIF E2E: MATH ADVENTURE (REVISI & UPGRADE) 
+  Target: Siswa Kelas V SD Muhammadiyah | Materi: Pecahan
+================================================================
 
-### C. Publikasi Daring Gratis (Hosting)
-Website statis ini dapat langsung diunggah ke:
-* **GitHub Pages**: Buat repositori baru, unggah file, aktifkan *Settings > Pages > Deploy from branch*.
-* **Vercel / Netlify**: Seret (*drag-and-drop*) folder `math-adventure` ke dasbor Netlify Drop atau Vercel.
+Navigasi ke: index.html
 
----
+--- UJI 1: BUMPER PEMBUKA & LOADING SCREEN TERPADU ---
+  [PASS] Layar Bumper/Loading aktif secara otomatis saat pertama dibuka
+  [PASS] Tombol "Lewati Pembukaan" (#btn-skip-bumper) tersedia
+  [PASS] Landing Screen (#screen-landing) aktif setelah bumper selesai
 
-## 🎮 6. Alur & Panduan Memainkan Game
+--- UJI 2: ZERO EMOJI POLICY (100% SVG ICONS) ---
+  [PASS] Zero Emoji di seluruh DOM teks (Ditemukan: 0)
+  [PASS] Pustaka vektor SVG AppIcons dimuat dengan lengkap
 
-1. **Layar Loading**: Sistem memuat modul secara otomatis dalam ~1,5 detik.
-2. **Halaman Beranda**: Klik **"Mulai Petualangan"** atau **"Cara Bermain"**.
-3. **Identitas Siswa**:
-   * Pilih karakter penjelajah: Niko (Si Cermat), Maya (Si Teliti), atau Bima (Si Tangguh).
-   * Ketikkan nama siswa atau nama kelompok (misal: "Ahmad / Kelompok Melati").
-   * Tersedia opsi *"Lanjut Tanpa Nama"* untuk siswa anonim.
-4. **Tutorial Interaktif**: Panduan 4 langkah mengenai navigasi peta, membaca materi, menyelesaikan teka-teki, dan syarat KKM 70 poin.
-5. **Peta Dunia**: Klik pin **Lembah Penemuan** (Level 1) untuk membuka jendela *briefing*.
-6. **Mempelajari Materi**: Siswa membaca konsep singkat dan mengamati contoh pecahan sebelum memulai misi.
-7. **Menyelesaikan Soal**:
-   * **Irisan Pizza Interaktif**: Siswa dapat mengklik potongan pizza untuk memvisualisasikan pembagian pecahan.
-   * **Pita Pecahan**: Mengklik segmen meteran pita.
-   * **Pilihan Ganda Bernalar**: Memilih opsi jawaban yang tepat.
-   * **Umpan Balik Seketika**: Jawaban benar mendapatkan konfirmasi gembira (+10 poin). Jawaban salah disertai bimbingan langkah demi langkah yang ramah dan memotivasi tanpa pesan merendahkan.
-8. **Kelulusan Level**:
-   * Jika skor $\ge 70$, siswa dinyatakan LULUS dan wilayah berikutnya di peta akan terbuka otomatis.
-   * Jika skor $< 70$, siswa disarankan membaca kembali materi dan mengklik tombol *"Ulangi Level Ini"*.
-9. **Tantangan Akhir & Gerbang Pengetahuan**: Menyelesaikan 5 soal evaluasi gabungan untuk membuka portal kebijaksanaan.
-10. **Laporan Akhir Petualangan**:
-    * Menampilkan total skor, persentase akurasi, dan status petualangan.
-    * Mendiagnosis **Materi yang Telah Dikuasai** vs **Materi yang Perlu Dipelajari Kembali**.
-    * Tombol **"Lihat Pembahasan Lengkap"**: Menampilkan seluruh 35 soal beserta jawaban siswa dan pembahasannya.
-    * Tombol **"Cetak / Simpan Laporan (PDF)"**: Menghasilkan lembar evaluasi resmi yang rapi untuk arsip guru dan laporan KKN.
-    * Tombol **"Sesi Baru"**: Mengosongkan data agar laptop dapat langsung digunakan bergantian oleh siswa lain.
+--- UJI 3: IDENTITAS PEMAIN & CARA BERMAIN ---
+  [PASS] Layar Identitas Pemain (#screen-player) aktif
+  [PASS] Identitas siswa tersimpan & lanjut ke alur petualangan (Layar: screen-tutorial)
+  [PASS] Peta Petualangan 2D Dunia Numeria (#screen-map) aktif
 
----
+--- UJI 4: LEVEL 1 (MANIPULATIF PEMOTONG KUE/PIZZA) ---
+  [PASS] Layar Level 1 (#screen-level) terbuka
+  [PASS] Papan Manipulatif Kue Gandum (#sim-pizza-board) berhasil dirender
+  [PASS] Pembacaan live fraction akurat: 3/8
+  [PASS] Umpan balik manipulatif pembagian kue 3/8 tervalidasi benar
 
-## ✏️ 7. Panduan Menambah atau Mengubah Soal
+--- UJI 5: LEVEL 2 (SIMULASI GELAS UKUR BERGRADUASI PECAHAN) ---
+  [PASS] Tombol Tuang Daun Mint (#btn-pour-mint) tersedia di Lab Ramuan
+  [PASS] Penjumlahan pecahan penyebut sama 2/5 + 1/5 = 3/5 liter tervalidasi benar
 
-Seluruh bank soal tersimpan rapi dan terpisah dari kode tampilan di dalam file [`js/data/questions.js`](file:///C:/Users/USERR/.gemini/antigravity/scratch/math-adventure/js/data/questions.js).
+--- UJI 6: LEVEL 3 (SIMULASI PENGUKURAN MISTAR & TOKO DESA) ---
+  [PASS] Penanda mistar pecahan 3/4 meter tersedia di Toko Desa
+  [PASS] Pemotongan 3/4 meter pita dan kalkulasi sisa kain tervalidasi sukses
 
-Untuk menambahkan atau memperbarui soal:
-1. Buka berkas `js/data/questions.js` menggunakan teks editor (VS Code, Notepad, dsb.).
-2. Ikuti struktur objek pertanyaan standar berikut:
-   ```javascript
-   {
-     id: "L1-Q11", // ID unik soal
-     level: 1,      // 1: Lembah, 2: Hutan, 3: Desa, 4: Gerbang Akhir
-     indicator: "Menyelesaikan perbandingan pecahan sederhana",
-     topic: "perbandingan", // Kategori: 'identifikasi' | 'senilai' | 'perbandingan' | 'operasi' | 'cerita'
-     type: "choice",        // 'choice' | 'interactive-pizza' | 'interactive-bar' | 'sort'
-     question: "Teks pertanyaan dalam bahasa Indonesia yang ramah anak...",
-     options: [
-       { id: "A", text: "Pilihan A", isCorrect: true },
-       { id: "B", text: "Pilihan B", isCorrect: false },
-       { id: "C", text: "Pilihan C", isCorrect: false },
-       { id: "D", text: "Pilihan D", isCorrect: false }
-     ],
-     explanation: "Penjelasan matematis langkah demi langkah mengapa A benar...",
-     points: 10
-   }
-   ```
-3. Simpan berkas, dan soal baru akan langsung terintegrasi secara otomatis ke dalam game!
+--- UJI 7: GERBANG PENGETAHUAN (FINAL GATE PUZZLE) ---
+  [PASS] Pilihan penyederhanaan rune kristal (9/12 = 3/4) tersedia
+  [PASS] Kunci Rune Kristal 1 terbuka dengan penyederhanaan pecahan yang tepat
+
+--- UJI 8: HALAMAN HASIL AKHIR & MODAL PEMBAHASAN LENGKAP ---
+  [PASS] Layar Hasil Akhir Petualangan (#screen-final-results) aktif
+  [PASS] Akumulasi skor petualangan tercatat: 10 Poin
+  [PASS] Modal Pembahasan Soal & Langkah Perhitungan (#review-modal) aktif
+
+--- UJI 9: STABILITAS TEKNIS (ZERO JAVASCRIPT ERRORS) ---
+  [PASS] Nol unhandled JavaScript exceptions (Daftar Error: [])
+
+================================================================
+HASIL AKHIR PENGUJIAN: 22 / 22 PENGUJIAN BERHASIL (100%)
+================================================================
+```
 
 ---
 
-## 🔬 8. Laporan Hasil Pengujian Fungsional & Pedagogis
+## 6. Petunjuk Penggunaan untuk Guru & Siswa
 
-Seluruh alur aplikasi telah diuji secara menyeluruh (*End-to-End Automated Browser Testing*) pada peramban Microsoft Edge Engine via DevTools Protocol:
-
-| Parameter Pengujian | Prosedur Uji | Hasil Aktual | Status |
-| :--- | :--- | :--- | :---: |
-| **Pemuatan Awal** | Uji transisi otomatis loading screen ke landing page | Transisi mulus dalam 1,5 detik tanpa macet | **PASS** |
-| **Formulir Siswa** | Input nama pemain & pemilihan avatar (Niko, Maya, Bima) | Nama tersimpan di state sesi dan header terbarui | **PASS** |
-| **Navigasi Tutorial** | Melangkah maju-mundur dan melewati (*skip*) tutorial | Berpindah ke peta tanpa error | **PASS** |
-| **Mekanisme Peta** | Memeriksa keterbukaan Level 1 dan penguncian Level 2–4 | Level 1 terbuka, Level 2–4 terkunci dengan modal syarat | **PASS** |
-| **Anti-Double Click** | Melakukan 5x klik cepat pada opsi jawaban | Skor hanya bertambah 1x (10 poin) dan tombol ter-disable | **PASS** |
-| **Skenario Gagal KKM** | Siswa hanya menjawab benar 4 dari 10 soal (Skor 40) | Level 2 tetap terkunci, tombol "Ulangi Level" muncul | **PASS** |
-| **Skenario Mengulang** | Siswa mengulang level dan meraih skor 80 ($\ge 70$) | Skor ter-update, Level 2 terbuka secara dinamis | **PASS** |
-| **Alur Penuh (35 Soal)**| Menyelesaikan Level 1, 2, 3, dan Tantangan Akhir | Semua soal terjawab, skor 350/350, akurasi 100% | **PASS** |
-| **Laporan Akhir** | Validasi ringkasan diagnosis materi & modal pembahasan | 35 soal tampil lengkap dengan pembahasan mendalam | **PASS** |
-| **Stabilitas Teknis** | Pemindaian pesan konsol runtime JavaScript | **0 JavaScript Errors**, 0 broken assets | **PASS** |
-
----
-
-## 💡 9. Rekomendasi Pengembangan Lebih Lanjut (Untuk KKN)
-
-1. **Uji Validasi Ahli**: Menyerahkan instrumen validasi media dan materi kepada Dosen Pembimbing Lapangan (DPL) serta Guru Kelas V SD Muhammadiyah untuk lembar pengesahan KKN.
-2. **Pre-test & Post-test**: Memanfaatkan bank soal ini sebagai instrumen tes awal (*pre-test*) sebelum bermain dan tes akhir (*post-test*) setelah bermain guna mengukur signifikansi peningkatan hasil belajar (*N-Gain score*).
-3. **Papan Peringkat Kelas (Opsional)**: Jika pihak sekolah menyediakan koneksi internet stabil, sistem dapat dikembangkan dengan Firebase / Google Sheets API untuk menampilkan papan skor kelas.
+1. **Membuka Media**:
+   * Akses URL produksi di browser: [https://math-adventure-numeria.vercel.app](https://math-adventure-numeria.vercel.app) atau buka berkas `index.html` secara lokal.
+2. **Memulai Petualangan**:
+   * Saksikan bumper sinematik Dunia Numeria atau klik **"Lewati Pembukaan"**.
+   * Klik tombol **"Mulai Petualangan"** pada halaman utama.
+   * Masukkan nama siswa atau nama kelompok belajar, lalu pilih karakter avatar penjelajah.
+   * Baca panduan singkat pada layar petunjuk, lalu masuk ke Peta Dunia Numeria.
+3. **Mengerjakan Level**:
+   * Mulai dari **Lembah Penemuan** (Level 1). Baca rangkuman materi dan tujuan misi.
+   * Selesaikan tantangan manipulatif konkret (potong kue gandum, tuang takaran ramuan, potong pita mistar toko, dsb.).
+   * Dapatkan skor $\ge 70$ untuk membuka wilayah berikutnya pada peta.
+4. **Melihat Hasil & Pembahasan**:
+   * Di akhir petualangan, buka **"Lihat Pembahasan Lengkap"** untuk meninjau langkah matematis setiap aktivitas.
+   * Guru dapat mencetak laporan evaluasi pembelajaran siswa menggunakan tombol **"Cetak Laporan Penilaian (PDF)"**.
+   * Gunakan tombol **"Mulai Sesi Siswa Baru"** untuk mereset data saat berganti giliran siswa di lab komputer sekolah.
