@@ -7,6 +7,8 @@
 ## 📌 1. Profil & Latar Belakang Proyek
 
 * **Nama Media**: Math Adventure: Petualangan di Dunia Numeria
+* **Live Website (Vercel)**: [https://math-adventure-numeria.vercel.app](https://math-adventure-numeria.vercel.app)
+* **Repositori GitHub**: [https://github.com/mamankironi-glitch/math-adventure](https://github.com/mamankironi-glitch/math-adventure)
 * **Sasaran Pengguna**: Siswa Kelas V Sekolah Dasar (Rentang Usia: 10–11 tahun)
 * **Mata Pelajaran**: Matematika (Materi Pokok: Pecahan / *Fractions*)
 * **Pendekatan Pembelajaran**: *Game-Based Learning*, *Point-and-Click Adventure 2D*, Representasi Benda Konkret, Eksplorasi Terbimbing (*Guided Exploration*), dan Pemecahan Masalah Kontekstual.
