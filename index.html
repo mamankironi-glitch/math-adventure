@@ -63,32 +63,44 @@
          ---------------------------------------------------------------------- -->
     <div id="screen-loading" class="screen active" aria-live="polite">
       <div class="bumper-container">
-        <!-- Adegan 1: Lanskap Dunia Numeria -->
-        <div class="bumper-scene-layer" id="bumper-scene-landscape"></div>
+        <!-- Lapisan 1: Lanskap Panorama Dunia Numeria (Background) -->
+        <div class="bumper-bg-layer" id="bumper-scene-landscape"></div>
 
-        <!-- Adegan 2: Awan & Cahaya Lingkungan -->
-        <div class="bumper-scene-layer" id="bumper-scene-environment"></div>
+        <!-- Lapisan 2: Awan & Pendar Cahaya Lingkungan -->
+        <div class="bumper-light-layer" id="bumper-scene-environment"></div>
 
         <!-- Tombol Lewati Bumper -->
-        <button type="button" class="btn-skip-bumper" id="btn-skip-bumper">
+        <button type="button" class="btn-skip-bumper" id="btn-skip-bumper" title="Lewati Pembukaan Langsung ke Beranda">
           <span>Lewati Pembukaan</span>
+          <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 4 15 12 5 20 5 4"></polygon><line x1="19" y1="5" x2="19" y2="19"></line></svg>
         </button>
 
-        <!-- Adegan 3, 4, 5: Karakter, Logo, dan Indikator Pemuatan -->
-        <div class="bumper-content-stage">
-          <div class="bumper-scene-layer" id="bumper-scene-character">
-            <img src="assets/images/character-guide.svg" alt="Niko" class="bumper-character-img animate-float">
-          </div>
-
-          <div class="bumper-scene-layer" id="bumper-scene-logo">
+        <!-- Kartu Presentasi Bumper (Tata Letak Terstruktur, Tanpa Tumpang Tindih) -->
+        <div class="bumper-card" id="bumper-main-card">
+          <!-- Logo & Identitas Math Adventure -->
+          <div class="bumper-brand-group" id="bumper-scene-logo">
             <img src="assets/images/logo.svg" alt="Math Adventure" class="bumper-logo-img">
             <div class="bumper-sub-badge">Media Pembelajaran Pecahan Kelas V SD Muhammadiyah</div>
           </div>
 
-          <div class="loading-bar-track">
-            <div class="loading-bar-fill" id="loading-progress-bar"></div>
+          <!-- Karakter Pemandu Niko -->
+          <div class="bumper-character-group" id="bumper-scene-character">
+            <div class="bumper-char-circle">
+              <img src="assets/images/character-guide.svg" alt="Niko si Penjelajah" class="bumper-character-img animate-float">
+            </div>
+            <div class="bumper-char-caption">
+              <strong>Niko si Penjelajah</strong>
+              <span>Pemandu Petualangan Dunia Numeria</span>
+            </div>
           </div>
-          <div class="loading-status-text" id="loading-status-label">Menyingkap Lanskap Dunia Numeria...</div>
+
+          <!-- Bar Progres & Status Pemuatan -->
+          <div class="bumper-progress-group" id="bumper-scene-progress">
+            <div class="loading-bar-track">
+              <div class="loading-bar-fill" id="loading-progress-bar"></div>
+            </div>
+            <div class="loading-status-text" id="loading-status-label">Menyingkap Lanskap Dunia Numeria...</div>
+          </div>
         </div>
       </div>
     </div>
@@ -392,7 +404,7 @@
 
                 <div>
                   <div class="question-indicator-tag" id="question-indicator">Topik: Pengenalan Pecahan</div>
-                  <h3 class="question-text-area" id="question-text">Teks pertanyaan...</h3>
+                  <h3 class="question-text-area" id="question-text">Memuat pertanyaan tantangan konsep...</h3>
                 </div>
 
                 <div class="interactive-puzzle-box" id="interactive-visual-box" style="display: none;"></div>

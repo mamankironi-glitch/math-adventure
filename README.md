@@ -14,7 +14,7 @@
 * **Repositori GitHub**: [https://github.com/mamankironi-glitch/math-adventure](https://github.com/mamankironi-glitch/math-adventure)
 * **Pendekatan Desain & Pembelajaran**:
   * *Game-Based Learning (2D Point-and-Click Adventure)*
-  * Manipulatif Benda Konkret Interaktif (Simulasi Pemotongan Kue/Pizza, Tabung Ukur Bertingkat, Mistar Pecahan, Teka-Teki Rune Kristal)
+  * Manipulatif Benda Konkret Interaktif (Simulasi Pemotongan Kue Gandum/Pizza, Tabung Gelas Ukur Graduasi, Mistar Toko Pita Desa, Teka-Teki Rune Kristal)
   * Panduan Karakter Ramah Anak (Niko si Cermat, Maya si Teliti, Bima si Tangguh)
   * Pembelajaran Bermakna Berbasis Masalah Nyata
   * Standar Kelulusan KKM (Skor minimal 70 untuk membuka wilayah berikutnya)
@@ -37,15 +37,21 @@ Sesuai instruksi audit komprehensif, berikut adalah hasil evaluasi terstruktur d
 4. **Peta Petualangan 2D Dunia Numeria**: Alur eksplorasi bertingkat 4 wilayah (Lembah Penemuan, Hutan Tantangan, Desa Kehidupan, dan Gerbang Pengetahuan) dengan sistem gembok level berdasar KKM (70) dipertahankan.
 
 ### Kategori 2: Fitur yang Diperbaiki
-1. **Penghapusan Seluruh Emoji (Kebijakan Zero Emoji)**: 
+1. **Perbaikan Layout Layar Bumper & Loading Screen (Bebas Tabrakan Elemen)**:
+   * *Sebelum*: Elemen karakter Niko, logo Math Adventure, badge subjudul, dan loading bar bertumpuk di titik tengah yang sama akibat penggunaan `position: absolute; inset: 0` pada `.bumper-scene-layer`.
+   * *Perbaikan*: Struktur DOM dan styling bumper didesain ulang menjadi `.bumper-card` dengan aliran flexbox vertikal berurutan: Logo brand di atas, karakter Niko di dalam lingkaran proporsional di tengah, dan loading bar serta teks status di bawah. Tombol "Lewati Pembukaan" diposisikan di pojok kanan atas dengan kontras tajam.
+2. **Optimalisasi Tata Letak Layar Desktop 1920 × 1080 (Zero-Scroll Viewport)**:
+   * *Sebelum*: Pada layar desktop Full HD 1080p dan laptop, header dan banner wilayah memakan tinggi berlebih (>250px), memaksa siswa melakukan scroll vertikal untuk melihat tombol aksi atau manipulatif.
+   * *Perbaikan*: Tinggi `.site-header` distandarkan ke 60px dan `.level-scenery-header` menjadi 52–68px inline bar. Layar Landing, Identitas Pemain, Tutorial, dan Peta Dunia Numeria kini pas 100% dalam satu viewport desktop 1080p tanpa scroll vertikal. Transisi layar juga memicu reset scroll otomatis (`window.scrollTo(0, 0)`).
+3. **Perbaikan Panggung Soal Evaluasi & Penghapusan Placeholder**:
+   * *Sebelum*: Area tantangan konsep menampilkan teks placeholder (*"Teks pertanyaan..."*) dan belum memiliki styling CSS untuk `.challenge-stage`, `.options-grid`, `.option-btn`, serta umpan balik.
+   * *Perbaikan*: Pertanyaan diekspor secara global (`window.GAME_DATA`) dan dirender seketika saat level dibuka. Seluruh komponen soal, opsi pilihan ganda berhuruf A–D, feedback box bernuansa hijau/kuning, serta proteksi *anti double-click* (tombol dinonaktifkan setelah memilih) telah diimplementasikan lengkap.
+4. **Penghapusan Seluruh Emoji (Kebijakan Zero Emoji)**: 
    * *Sebelum*: Banyak tombol dan teks antarmuka menggunakan emoji sistem (seperti 🍕, 🌲, 🎒, 🏆, dsb.) yang tampil tidak konsisten antar sistem operasi siswa.
    * *Perbaikan*: 100% emoji telah diganti dengan pustaka ikon vektor SVG terpadu (`AppIcons`) dengan goresan tajam, ukuran proporsional, dan warna tema konsisten.
-2. **Optimalisasi Resolusi Layar Desktop & 4K**:
-   * *Sebelum*: Tampilan kurang proporsional pada monitor desktop modern (1920 × 1080) dan monitor 4K (3840 × 2160).
-   * *Perbaikan*: Seluruh kontainer utama mengadopsi fluid scaling berbasis CSS `clamp()`, batas lebar maksimum fleksibel (hingga 1440px–1800px), dan grid 16:9 yang mempertahankan proporsi tanpa distorsi visual.
-3. **Pemberian Umpan Balik Matematis yang Lengkap**:
-   * *Sebelum*: Jawaban salah hanya menampilkan pesan singkat tanpa alasan mendasar.
-   * *Perbaikan*: Umpan balik langsung menjelaskan langkah matematis terperinci (pembilang, penyebut, KPK, dan penyederhanaan) serta dapat ditinjau ulang di Modal Pembahasan Akhir.
+5. **Pergantian Sesi Siswa Baru (Multi-User Reset)**:
+   * *Sebelum*: Pergantian siswa di komputer sekolah berpotensi menyisakan input nama atau skor sesi sebelumnya.
+   * *Perbaikan*: Fitur `resetSession()` mengosongkan kolom input nama, menyetel ulang skor ke 0 poin, membersihkan riwayat jawaban, dan mengarahkan tampilan kembali ke Layar Identitas Pemain secara higienis.
 
 ### Kategori 3: Fitur Baru yang Dikembangkan
 1. **Bumper Pembuka Sinematik 5 Adegan Terintegrasi Loading Screen**:
@@ -104,7 +110,7 @@ math-adventure/
 │   ├── transitions.js               # Manajer transisi tematik atmosferik antar-wilayah
 │   ├── audio.js                     # Sintesis audio bebas dependensi (Web Audio API)
 │   ├── storage.js                   # Manajemen sesi siswa, penilaian KKM, dan diagnosis materi
-│   ├── navigation.js                # Pengontrol alur layar, update header, dan modal pembahasan
+│   ├── navigation.js                # Pengontrol alur layar, reset session, dan modal pembahasan
 │   ├── game.js                      # Pengendali alur permainan, orkestrator materi & simulasi
 │   │
 │   ├── data/
@@ -133,7 +139,7 @@ math-adventure/
 
 ## 5. Hasil Pengujian Otomatis (*End-to-End Automated Browser Testing*)
 
-Seluruh fungsi diverifikasi melalui pengujian peramban langsung (Microsoft Edge headless berbasis Chrome DevTools Protocol / CDP):
+Seluruh fungsi diverifikasi melalui pengujian peramban langsung (Microsoft Edge headless berbasis Chrome DevTools Protocol / CDP) pada resolusi desktop 1920 × 1080:
 
 ```text
 ================================================================
@@ -143,48 +149,64 @@ Seluruh fungsi diverifikasi melalui pengujian peramban langsung (Microsoft Edge 
 
 Navigasi ke: index.html
 
---- UJI 1: BUMPER PEMBUKA & LOADING SCREEN TERPADU ---
-  [PASS] Layar Bumper/Loading aktif secara otomatis saat pertama dibuka
-  [PASS] Tombol "Lewati Pembukaan" (#btn-skip-bumper) tersedia
+--- UJI 1: BUMPER PEMBUKA & LOADING SCREEN (NON-COLLISION) ---
+  [PASS] Layar Bumper/Loading aktif otomatis saat game pertama dibuka
+  [PASS] Kontainer .bumper-card terstruktur rapi
+  [PASS] Elemen Bumper (Logo, Karakter, Loading Bar) tersusun berurutan tanpa saling menabrak/bertumpuk
+  [PASS] Tombol "Lewati Pembukaan" (#btn-skip-bumper) tersedia dan dapat diakses
   [PASS] Landing Screen (#screen-landing) aktif setelah bumper selesai
 
---- UJI 2: ZERO EMOJI POLICY (100% SVG ICONS) ---
+--- UJI 2: ZERO-SCROLL VIEWPORT PADA DESKTOP 1920x1080 ---
+  [PASS] Landing Screen pas 1 layar desktop tanpa scroll vertikal yang tidak perlu
+
+--- UJI 3: ZERO EMOJI POLICY (100% SVG ICONS) ---
   [PASS] Zero Emoji di seluruh DOM teks (Ditemukan: 0)
   [PASS] Pustaka vektor SVG AppIcons dimuat dengan lengkap
 
---- UJI 3: IDENTITAS PEMAIN & CARA BERMAIN ---
+--- UJI 4: IDENTITAS SISWA & INPUT PROFIL ---
   [PASS] Layar Identitas Pemain (#screen-player) aktif
-  [PASS] Identitas siswa tersimpan & lanjut ke alur petualangan (Layar: screen-tutorial)
+  [PASS] Layar Identitas Pemain muat dalam 1 layar desktop (Zero-scroll)
+  [PASS] Identitas siswa tersimpan & lanjut ke alur petualangan
+  [PASS] Layar Tutorial muat dalam 1 layar desktop (Zero-scroll)
   [PASS] Peta Petualangan 2D Dunia Numeria (#screen-map) aktif
+  [PASS] Peta Petualangan 2D muat dalam 1 layar desktop (Zero-scroll)
 
---- UJI 4: LEVEL 1 (MANIPULATIF PEMOTONG KUE/PIZZA) ---
+--- UJI 5: LEVEL 1 (MANIPULATIF PEMOTONG KUE & SOAL EVALUASI) ---
   [PASS] Layar Level 1 (#screen-level) terbuka
   [PASS] Papan Manipulatif Kue Gandum (#sim-pizza-board) berhasil dirender
   [PASS] Pembacaan live fraction akurat: 3/8
   [PASS] Umpan balik manipulatif pembagian kue 3/8 tervalidasi benar
+  [PASS] Soal konsep matematika dimuat dari GAME_DATA ("Sebuah pizza lezat dipotong menjadi 8 bagian ...")
+  [PASS] Opsi jawaban ganda (A, B, C, D) dirender lengkap (4 opsi)
+  [PASS] Anti double-click aktif (tombol dinonaktifkan) & feedback evaluasi muncul
 
---- UJI 5: LEVEL 2 (SIMULASI GELAS UKUR BERGRADUASI PECAHAN) ---
+--- UJI 6: LEVEL 2 (SIMULASI GELAS UKUR BERGRADUASI PECAHAN) ---
   [PASS] Tombol Tuang Daun Mint (#btn-pour-mint) tersedia di Lab Ramuan
   [PASS] Penjumlahan pecahan penyebut sama 2/5 + 1/5 = 3/5 liter tervalidasi benar
 
---- UJI 6: LEVEL 3 (SIMULASI PENGUKURAN MISTAR & TOKO DESA) ---
+--- UJI 7: LEVEL 3 (SIMULASI PENGUKURAN MISTAR & TOKO DESA) ---
   [PASS] Penanda mistar pecahan 3/4 meter tersedia di Toko Desa
   [PASS] Pemotongan 3/4 meter pita dan kalkulasi sisa kain tervalidasi sukses
 
---- UJI 7: GERBANG PENGETAHUAN (FINAL GATE PUZZLE) ---
+--- UJI 8: GERBANG PENGETAHUAN (FINAL GATE PUZZLE) ---
   [PASS] Pilihan penyederhanaan rune kristal (9/12 = 3/4) tersedia
   [PASS] Kunci Rune Kristal 1 terbuka dengan penyederhanaan pecahan yang tepat
 
---- UJI 8: HALAMAN HASIL AKHIR & MODAL PEMBAHASAN LENGKAP ---
+--- UJI 9: HALAMAN HASIL AKHIR & MODAL PEMBAHASAN LENGKAP ---
   [PASS] Layar Hasil Akhir Petualangan (#screen-final-results) aktif
   [PASS] Akumulasi skor petualangan tercatat: 10 Poin
   [PASS] Modal Pembahasan Soal & Langkah Perhitungan (#review-modal) aktif
 
---- UJI 9: STABILITAS TEKNIS (ZERO JAVASCRIPT ERRORS) ---
+--- UJI 10: MULTI-USER / PERGANTIAN SESI SISWA BARU ---
+  [PASS] Nama pemain dikosongkan untuk siswa baru
+  [PASS] Skor disetel ulang ke 0 poin
+  [PASS] Sistem kembali ke Layar Identitas Pemain (#screen-player)
+
+--- UJI 11: STABILITAS TEKNIS (ZERO JAVASCRIPT ERRORS) ---
   [PASS] Nol unhandled JavaScript exceptions (Daftar Error: [])
 
 ================================================================
-HASIL AKHIR PENGUJIAN: 22 / 22 PENGUJIAN BERHASIL (100%)
+HASIL AKHIR PENGUJIAN: 34 / 34 PENGUJIAN BERHASIL (100%)
 ================================================================
 ```
 

@@ -766,6 +766,9 @@ const GAME_DATA = {
 };
 
 // Pastikan data dapat diakses baik di browser global maupun di module/test
+if (typeof window !== 'undefined') {
+  window.GAME_DATA = GAME_DATA;
+}
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = GAME_DATA;
 }

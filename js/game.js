@@ -50,6 +50,7 @@ class GameEngine {
 
     this.renderLevelHeader();
     this.showMateriTab();
+    this.renderCurrentQuestion();
   }
 
   renderLevelHeader() {

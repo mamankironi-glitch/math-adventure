@@ -44,7 +44,13 @@ class AppNavigator {
         this.onScreenEnter(screenId);
       }
 
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      // Pastikan posisi scroll langsung berada di bagian paling atas
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+      const appRoot = document.getElementById("app-root");
+      if (appRoot) appRoot.scrollTop = 0;
+      if (target) target.scrollTop = 0;
     };
 
     if (theme && window.transitionMgr) {
@@ -57,7 +63,13 @@ class AppNavigator {
   onScreenEnter(screenId) {
     this.updateHeaderUI();
 
-    if (screenId === "map") {
+    if (screenId === "player") {
+      const input = document.getElementById("player-name-input");
+      if (input) {
+        const player = gameStorage.getPlayer();
+        input.value = (player.name && player.name !== "Penjelajah Cilik") ? player.name : "";
+      }
+    } else if (screenId === "map") {
       this.updateWorldMap();
     } else if (screenId === "final-results") {
       this.renderFinalResultsScreen();
@@ -131,11 +143,17 @@ class AppNavigator {
           "Mulai sesi pemain baru?\nSkor dan jawaban saat ini akan diatur ulang untuk siswa berikutnya."
         );
         if (confirmReset) {
-          gameStorage.resetEntireSession();
-          this.showScreen("player");
+          this.resetSession();
         }
       });
     }
+  }
+
+  resetSession() {
+    gameStorage.resetEntireSession();
+    const nameInput = document.getElementById("player-name-input");
+    if (nameInput) nameInput.value = "";
+    this.showScreen("player");
   }
 
   // --- LOGIKA PETA DUNIA NUMERIA ---
