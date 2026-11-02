@@ -52,6 +52,12 @@ Sesuai instruksi audit komprehensif, berikut adalah hasil evaluasi terstruktur d
 5. **Pergantian Sesi Siswa Baru (Multi-User Reset)**:
    * *Sebelum*: Pergantian siswa di komputer sekolah berpotensi menyisakan input nama atau skor sesi sebelumnya.
    * *Perbaikan*: Fitur `resetSession()` mengosongkan kolom input nama, menyetel ulang skor ke 0 poin, membersihkan riwayat jawaban, dan mengarahkan tampilan kembali ke Layar Identitas Pemain secara higienis.
+6. **Perombakan UI/UX Menyeluruh: Fold Line Elegant Edition**:
+   * *Inspirasi*: Mengadopsi filosofi desain *Fold Line / ThreeUI* yang presisi, modern, dan profesional.
+   * *Latar Belakang*: Pola grid geometris fold-line matematika dengan pendar cahaya radial ambient lembut, merefleksikan konsep melipat bidang (*paper-folding fractions*).
+   * *Kartu & Komponen*: Permukaan *glassmorphism* lembut (`backdrop-filter: blur(16px)`), bingkai bevel tipis presisi (`1.5px solid rgba(255, 255, 255, 0.9)`), serta bayangan bertingkat multi-layer.
+   * *Tipografi*: Mengadopsi Google Font *Plus Jakarta Sans* untuk keterbacaan tajam, modern, dan sangat nyaman bagi siswa kelas V SD.
+   * *Tombol & Interaksi*: Tombol dengan highlight bevel atas, bayangan elevasi halus, dan efek mikro-interaksi membal (*tactile active state*).
 
 ### Kategori 3: Fitur Baru yang Dikembangkan
 1. **Bumper Pembuka Sinematik 5 Adegan Terintegrasi Loading Screen**:

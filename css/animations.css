@@ -1,10 +1,11 @@
 /**
  * MATH ADVENTURE - DUNIA NUMERIA
- * Motion & Animations Stylesheet (Upgraded Version)
+ * Motion & Animations Stylesheet (Fold Line Elegant Edition)
  * 
  * - Animasi Sinematik Bumper 5 Tahap
  * - Efek Gerakan Lingkungan & Karakter
  * - Transisi Tematik Antar-Wilayah
+ * - Micro-interactions & Fold-Line Shimmer
  * - Menghormati prefers-reduced-motion
  */
 
@@ -55,44 +56,24 @@
 @keyframes bumperLogoRadiance {
   0% {
     opacity: 0;
-    transform: scale(0.85);
+    transform: scale(0.88);
     filter: drop-shadow(0 0 0 rgba(255, 194, 32, 0));
   }
   60% {
     opacity: 1;
-    transform: scale(1.04);
+    transform: scale(1.03);
     filter: drop-shadow(0 0 35px rgba(255, 194, 32, 0.7));
   }
   100% {
     opacity: 1;
     transform: scale(1);
-    filter: drop-shadow(0 6px 18px rgba(4, 30, 66, 0.25));
+    filter: drop-shadow(0 8px 24px rgba(4, 30, 66, 0.2));
   }
 }
 
 /* ==========================================================================
-   2. KEYFRAME GAMEPLAY & MANIPULATIF
+   2. KEYFRAME GAMEPLAY & FOLD LINE EFFECTS
    ========================================================================== */
-
-/* Mengisi Cairan di Tabung Ukur Kaca */
-@keyframes liquidRise {
-  from {
-    transform: scaleY(0);
-  }
-  to {
-    transform: scaleY(1);
-  }
-}
-
-/* Gelombang Permukaan Cairan */
-@keyframes liquidWave {
-  0%, 100% {
-    border-radius: 4px 4px 0 0;
-  }
-  50% {
-    border-radius: 8px 8px 0 0;
-  }
-}
 
 /* Karakter Terapung Halus (Bobbing) */
 @keyframes floatGentle {
@@ -111,6 +92,62 @@
   }
   50% {
     box-shadow: 0 0 0 12px rgba(255, 194, 32, 0);
+  }
+}
+
+/* Efek Radar Ping Pin Lokasi Peta */
+@keyframes radarPing {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+  70% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+/* Kilauan Lembut Garis Lipat (Fold Line Shimmer) */
+@keyframes foldLineShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Floating Ambient Aura */
+@keyframes ambientOrbFloat {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(15px, -15px) scale(1.05);
+  }
+}
+
+/* Mengisi Cairan di Tabung Ukur Kaca */
+@keyframes liquidRise {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+/* Gelombang Permukaan Cairan */
+@keyframes liquidWave {
+  0%, 100% {
+    border-radius: 4px 4px 0 0;
+  }
+  50% {
+    border-radius: 8px 8px 0 0;
   }
 }
 
@@ -140,15 +177,15 @@
   }
 }
 
-/* Transisi Layar Masuk */
+/* Transisi Layar Masuk (Spring Smooth) */
 @keyframes screenSlideIn {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(14px) scale(0.995);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
@@ -183,7 +220,7 @@
    ========================================================================== */
 
 .animate-float {
-  animation: floatGentle 3.5s ease-in-out infinite;
+  animation: floatGentle 3.8s ease-in-out infinite;
 }
 
 .animate-pulse-glow {
@@ -191,15 +228,19 @@
 }
 
 .animate-screen-enter {
-  animation: screenSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: screenSlideIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .animate-correct {
-  animation: popSuccess 0.4s ease-out;
+  animation: popSuccess 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .animate-gentle-shake {
-  animation: gentleNotice 0.4s ease-in-out;
+  animation: gentleNotice 0.35s ease-in-out;
+}
+
+.animate-radar-ping {
+  animation: radarPing 2s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
 #final-gate-crystal {
@@ -220,6 +261,7 @@
 
   .animate-float,
   .animate-pulse-glow,
+  .animate-radar-ping,
   #final-gate-crystal {
     animation: none !important;
   }
